@@ -1,0 +1,10 @@
+/*#help-01-page { background-image: url("../img/help-01-page.png"); }
+#help-02-page { background-image: url("../img/help-02-page.png"); }
+#help-03-page { background-image: url("../img/help-03-page.png"); }*/
+
+.help-page {
+	background-color: white;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
