@@ -8,3 +8,43 @@
     background-position: center center;
     background-repeat: no-repeat;
 }
+
+.swipe-dot {
+	display: block;
+	width: 0.5em;
+	height: 0.5em;
+	font-weight: normal;	
+	font-size: 1.2em;
+	-webkit-border-radius: 0.25em;
+	border-radius: 0.25em;
+	margin: 0.2em;
+	background-color: rgba(0, 0, 0, 0.1);
+	background-image: none;
+	cursor: pointer;
+	float: left;
+}
+
+.swipe-dot-view {
+	height: 1.5em;
+	bottom: 50px;
+	left: 45%;
+	-webkit-box-orient: horizontal;
+	box-orient: horizontal;
+	z-index: 1;
+	position: absolute;
+	overflow: hidden;
+	max-width: 140px;
+}
+
+.swipe-dot.current {
+	background-color: rgba(0, 0, 0, 0.3);
+	background-image: none;
+}
+
+.ui-grid-a .ui-btn {
+	display: block;
+}
+
+.hidden-page {
+	display: none;	
+}

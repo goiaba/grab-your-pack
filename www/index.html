@@ -42,73 +42,68 @@
         <title>Grab Your Pack</title>
     </head>
     <body>
-        <!-- 
-        Help Page 1
-        -->
-        <div data-role="page" id="help-01-page" class="help-page swipeable">
+        <!-- Help Page -->
+        <div data-role="page" id="help-page" class="help-page swipeable">
             <div data-role="header">
-                <h3>Grab Your Pack</h3>
+                <h3>Know Grab Your Pack</h3>
             </div>
             <div role="main" class="ui-content">
-                <p>Help text page 1</p>
-            </div>
-            <div data-role="footer" data-position="fixed" class="ui-grid-a">
-                <div class="ui-block-a"><button class="ui-btn" type="submit" data-theme="a">Sign Up</button></div>
-                <div class="ui-block-b"><button class="ui-btn" type="submit" data-theme="a">Log in</button></div>     
-            </div>
-        </div>
+                <div id="help-01" class="visible-page">
+                    <p>Help text page 1</p>
+                </div>
 
-        <!-- 
-        Help Page 2
-        -->
-        <div data-role="page" id="help-02-page" class="help-page swipeable">
-            <div data-role="header">
-                <h3>Grab Your Pack</h3>
-            </div>
-            <div role="main" class="ui-content">
-                <p>Help text page 2</p>
-            </div>
-            <div data-role="footer" data-position="fixed" class="ui-grid-a">
-                <div class="ui-block-a"><button class="ui-btn" type="submit" data-theme="a">Sign Up</button></div>
-                <div class="ui-block-b"><button class="ui-btn" type="submit" data-theme="a">Log in</button></div>     
-            </div>
-        </div>
+                <div id="help-02" class="hidden-page">
+                    <p>Help text page 2</p>
+                </div>
 
-        <!-- 
-        Help Page 3
-        -->
-        <div data-role="page" id="help-03-page" class="help-page swipeable">
-            <div data-role="header">
-                <h3>Grab Your Pack</h3>
+                <div id="help-03" class="hidden-page">
+                    <p>Help text page 3</p>
+                </div>
+
+                <div class="swipe-dot-view" align="center">
+                    <span class="swipe-dot current"></span>
+                    <span class="swipe-dot"></span>
+                    <span class="swipe-dot"></span>
+                </div>
             </div>
-            <div role="main" class="ui-content">
-                <p>Help text page 3</p>
+            <div data-role="footer" data-position="fixed">
+                <fieldset class="ui-grid-a">
+                    <div class="ui-block-a">
+                        <a href="#signup-page" class="ui-btn" data-transition="slide" data-theme="a">Sign Up</a>
+                    </div>
+                    <div class="ui-block-b">
+                        <a href="#choose-login-signup-page" class="ui-btn" data-transition="slide" data-theme="a">Log in</a>
+                    </div>
+                </fieldset>
             </div>
-            <div data-role="footer" data-position="fixed" class="ui-grid-a">
-                <div class="ui-block-a"><button class="ui-btn" type="submit" data-theme="a">Sign Up</button></div>
-                <div class="ui-block-b"><button class="ui-btn" type="submit" data-theme="a">Log in</button></div>     
-            </div>
-        </div>        
+        </div>     
 
         <div data-role="page" id="choose-login-signup-page">
+            <p>login signup page</p>
         </div>
 
         <div data-role="page" id="facebook-login-page">
+            <p>facebook login page</p>
         </div>
 
         <div data-role="page" id="app-login-page">
+            <p>app login page</p>
         </div>
 
         <div data-role="page" id="signup-page">
+            <p>signup page</p>
         </div>
 
         <div data-role="page" id="address-page">
+            <p>address page</p>
         </div>
 
         <div data-role="page" id="notify-page">
+            <p>notify page</p>
         </div>
 
         <div data-role="page" id="notification-page">
+            <p>notification page</p>
         </div>
     </body>
 </html>
