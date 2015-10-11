@@ -8,3 +8,20 @@
     background-position: center center;
     background-repeat: no-repeat;
 }
+#fb-button{
+	background-color: rgb(60,90,151);
+	color: white;
+}
+.ui-btn-icon-notext::after, .ui-btn-icon-top::after, .ui-btn-icon-bottom::after{
+	left: 0 !important;
+	margin-left: 10px !important;
+}
+
+#signin-page{
+
+	  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/bg1.png);
+	  background-position: center center;
+	  background-repeat: none;
+	  background-size: cover;
+	  color: white;
+}
