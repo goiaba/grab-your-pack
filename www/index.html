@@ -42,7 +42,7 @@
         <title>Grab Your Pack</title>
     </head>
     <body>
-        <!-- 
+        <!--
         Help Page 1
         -->
         <div data-role="page" id="help-01-page" class="help-page swipeable">
@@ -54,11 +54,11 @@
             </div>
             <div data-role="footer" data-position="fixed" class="ui-grid-a">
                 <div class="ui-block-a"><button class="ui-btn" type="submit" data-theme="a">Sign Up</button></div>
-                <div class="ui-block-b"><button class="ui-btn" type="submit" data-theme="a">Log in</button></div>     
+                <div class="ui-block-b"><button class="ui-btn" type="submit" data-theme="a">Log in</button></div>
             </div>
         </div>
 
-        <!-- 
+        <!--
         Help Page 2
         -->
         <div data-role="page" id="help-02-page" class="help-page swipeable">
@@ -70,11 +70,11 @@
             </div>
             <div data-role="footer" data-position="fixed" class="ui-grid-a">
                 <div class="ui-block-a"><button class="ui-btn" type="submit" data-theme="a">Sign Up</button></div>
-                <div class="ui-block-b"><button class="ui-btn" type="submit" data-theme="a">Log in</button></div>     
+                <div class="ui-block-b"><button class="ui-btn" type="submit" data-theme="a">Log in</button></div>
             </div>
         </div>
 
-        <!-- 
+        <!--
         Help Page 3
         -->
         <div data-role="page" id="help-03-page" class="help-page swipeable">
@@ -86,18 +86,53 @@
             </div>
             <div data-role="footer" data-position="fixed" class="ui-grid-a">
                 <div class="ui-block-a"><button class="ui-btn" type="submit" data-theme="a">Sign Up</button></div>
-                <div class="ui-block-b"><button class="ui-btn" type="submit" data-theme="a">Log in</button></div>     
+                <div class="ui-block-b"><button class="ui-btn" type="submit" data-theme="a">Log in</button></div>
             </div>
-        </div>        
-
-        <div data-role="page" id="choose-login-signup-page">
         </div>
 
+        <!--
+        Log In Page
+       -->
         <div data-role="page" id="facebook-login-page">
-        </div>
+          <div data-role="header">
+              <h3>Grab Your Pack</h3>
+          </div>
+          <div role="main" class="ui-content">
+              <p>Quickly Log In using</p>
 
-        <div data-role="page" id="app-login-page">
-        </div>
+
+          <div class="ui-content"><button class="ui-btn" type="submit" data-theme="a"> Facebook </button></div>
+          <div class="ui-content"><a href="#signin-with-email" class="ui-btn">Email </a></div>
+
+            <p>Don't have an account yet?</p>
+
+          <div class="ui-content"><button class="ui-btn" type="submit" data-theme="a"> Sign Up </button></div>
+
+          </div>
+
+        </div><!-- Sign In Page -->
+
+        <!--
+        Log In with Email
+        -->
+        <div data-role="page" id="signin-with-email">
+              <div data-role="header">
+                  <h3>Grab Your Pack</h3>
+              </div>
+              <div role="main" class="ui-content">
+                <div class="ui-content">
+                  <form method="post" action="demoform.asp">
+                    <label for="fname" class="ui-hidden-accessible">Email</label>
+                    <input type="text" name="fname" id="fname" placeholder="Email">
+                    <label for="fname" class="ui-hidden-accessible">Password</label>
+                    <input type="text" name="fname" id="fname" placeholder="Password">
+                    <a href="#" class="ui-btn">Log In</a>
+                  </form>
+                </div>
+              </div>
+        </div><!-- Log In with Email -->
+
+
 
         <div data-role="page" id="signup-page">
         </div>
