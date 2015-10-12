@@ -46,14 +46,14 @@
         Help Page
         -->
         <div data-role="page" id="help-page" class="help-page swipeable">
-            <div data-role="header">
-                <h3>Know Grab Your Pack</h3>
-            </div>
+            <div data-role="header"><h3>Know Grab Your Pack</h3></div>
 
             <div role="main" class="ui-content">
-
                 <div id="help-01" class="visible-page">
-                    <p>Help text page 1</p>
+                    <p>If you live in a building that does not have a reception desk
+                        then you probably get very fearful when you buy an expensive
+                        item that will be delivered by a courrier.
+                    </p>
                 </div>
 
                 <div id="help-02" class="hidden-page">
@@ -70,13 +70,14 @@
                     <span class="swipe-dot"></span>
                 </div>
             </div>
+
             <div data-role="footer" data-position="fixed">
                 <fieldset class="ui-grid-a">
                     <div class="ui-block-a">
                         <a href="#signup-page" class="ui-btn" data-transition="slide" data-theme="a">Sign Up</a>
                     </div>
                     <div class="ui-block-b">
-                        <a href="#choose-login-signup-page" class="ui-btn" data-transition="slide" data-theme="a">Log in</a>
+                        <a href="#choose-login-signup-page" class="ui-btn" data-transition="slide" data-theme="a">Log In</a>
                     </div>
                 </fieldset>
             </div>
@@ -89,15 +90,13 @@
             <div data-role="header"><h3>Grab Your Pack</h3></div>
 
             <div role="main" class="ui-content">
-                <p>Quickly Log In using</p>
                 <div class="ui-content">
+                    <p>Quickly Log In using</p>
                     <button id="fb-button" class="ui-btn" type="submit" data-theme="a">Facebook</button>
-                </div>
-                <div class="ui-content">
                     <a href="#app-login-page" class="ui-btn">Email</a>
                 </div>
-                <p>Don't have an account yet?</p>
                 <div class="ui-content">
+                    <p>Don't have an account yet?</p>
                     <a href="#signup-page" class="ui-btn">Sign Up</a>
                 </div>
             </div>
@@ -110,9 +109,9 @@
             <div data-role="header"><h3>Grab Your Pack</h3></div>
 
             <div role="main" class="ui-content">
+                <a id="left" href="#choose-login-signup-page" class="ui-icon-arrow-l ui-btn-icon-top"></a>
                 <div class="ui-content">
                     <form method="post" action="#">
-                        <a id="left" href="#choose-login-signup-page" class="ui-icon-arrow-l ui-btn-icon-top"></a>
                         <label for="email" class="ui-hidden-accessible">Email</label>
                         <input type="text" name="email" id="email" placeholder="Email">
                         <label for="password" class="ui-hidden-accessible">Password</label>
