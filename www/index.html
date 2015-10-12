@@ -128,11 +128,46 @@
         </div>
 
         <div data-role="page" id="signup-page">
-            <p>signup page</p>
+			 <div data-role="header"><h3>Grab Your Pack</h3></div>
+        
+                <div  role="main" class="signup ui-content">
+                    <form method="post" action="#">
+                        <a id="left" href="#choose-login-signup-page" class="ui-icon-arrow-l ui-btn-icon-top"></a>
+                        <label for="Name" class="ui-hidden-accessible">Name</label>
+                        <input type="text" name="name" id="name" placeholder="Name">
+                        <label for="Last Name" class="ui-hidden-accessible">Last Name</label>
+                        <input type="text" name="lname" id="lname" placeholder="Email">
+                        <label for="email" class="ui-hidden-accessible">Email</label>
+                        <input type="text" name="email" id="email" placeholder="Email">
+                        <label for="password" class="ui-hidden-accessible">Password</label>
+                        <input type="text" name="password" id="password" placeholder="Password">
+                        <label for="Confirm Password" class="ui-hidden-accessible">Confirm Password</label>
+                        <input type="text" name="confirmpassword" id="confirmpassword" placeholder="Confirm Password">
+                        <a href="#address-page" class="ui-btn">Sign Up</a>
+                    </form>
+                </div>
         </div>
 
         <div data-role="page" id="address-page">
-            <p>address page</p>
+            <div data-role="header"><h3>Grab Your Pack</h3></div>
+            <div role="main" class="address ui-content">
+                <form method="post" action="#">
+                    <a id="left" href="#choose-login-signup-page" class="ui-icon-arrow-l ui-btn-icon-top"></a>
+                    <label for="Address" class="ui-hidden-accessible">Address</label>
+                    <input type="text" name="address" id="address" placeholder="Address">
+                    <label for="Apartment Number" class="ui-hidden-accessible">Apartment Number</label>
+                    <input type="text" name="apt" id="apt" placeholder="Apartment Number">
+                    <label for="city" class="ui-hidden-accessible">City</label>
+                    <input type="text" name="city" id="email" placeholder="city">
+                    <label for="State" class="ui-hidden-accessible">State</label>
+                    <input type="text" name="state" id="state" placeholder="State">
+                    <label for="Zip Code" class="ui-hidden-accessible">Zip Code</label>
+                    <input type="text" name="zcode" id="zcode" placeholder="Zip Code">
+                    <label for="Phone Number" class="ui-hidden-accessible">Phone Number</label>
+                    <input type="text" name="pnumber" id="zcode" placeholder="pnumber">
+                    <a href="#" class="ui-btn">Submit</a>
+                </form>
+            </div>
         </div>
 
         <div data-role="page" id="notify-page">
