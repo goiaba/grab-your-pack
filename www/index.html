@@ -73,14 +73,14 @@
             <div data-role="footer" data-position="fixed">
                 <fieldset class="ui-grid-a">
                     <div class="ui-block-a">
-                        <a href="#signup-page" class="ui-btn" data-transition="slide" data-theme="a">Sign Up</a>
+                        <a href="#notify-page" class="ui-btn" data-transition="slide" data-theme="a">Sign Up</a>
                     </div>
                     <div class="ui-block-b">
                         <a href="#choose-login-signup-page" class="ui-btn" data-transition="slide" data-theme="a">Log in</a>
                     </div>
                 </fieldset>
             </div>
-        </div>     
+        </div>
 
         <!--
         Sign In Page
@@ -136,11 +136,48 @@
         </div>
 
         <div data-role="page" id="notify-page">
-            <p>notify page</p>
-        </div>
+          <div data-role="header"><h3>Grab Your Pack</h3></div>
+          <div data-role="navbar">
+          	<ul>
+          		<li><a href="#" class="ui-btn-active ui-state-persist">Notify</a></li>
+          		<li><a href="#notification-page">notifications</a></li>
+          	</ul>
+          </div><!-- /navbar -->
+
+          <div data-role="content">
+            <div>
+              <a href="#user-panel" data-role="button" data-icon="grid" data-inline="true"><a/>
+              <h3>building address goes here</h3>
+            </div>
+            <div class="ui-grid-c">
+            	<div class="ui-block-a"><a href="#" class="ui-btn  ">201</a></div>
+            	<div class="ui-block-b"><a href="#" class="ui-btn  ">211</a></div>
+            	<div class="ui-block-c"><a href="#" class="ui-btn  ">221</a></div>
+              <div class="ui-block-d"><a href="#" class="ui-btn  ">231</a></div>
+            	<div class="ui-block-a"><a href="#" class="ui-btn  ">301</a></div>
+            	<div class="ui-block-b"><a href="#" class="ui-btn  ">311</a></div>
+              <div class="ui-block-c"><a href="#" class="ui-btn  ">321</a></div>
+              <div class="ui-block-d"><a href="#" class="ui-btn  ">331</a></div>
+            </div><!-- /grid-c -->
+          </div><!-- /content -->
+
+          <div data-role="panel" id="user-panel" class="panel-left">
+              <!-- panel content goes here -->
+              Panel was open
+          </div> <!-- /panel -->
+        </div><!-- /page -->
 
         <div data-role="page" id="notification-page">
-            <p>notification page</p>
+          <div data-role="header"><h3>Grab Your Pack</h3></div>
+          <div data-role="navbar">
+            <ul>
+              <li><a href="#notify-page">Notify</a></li>
+              <li><a href="#" class="ui-btn-active ui-state-persist">notifications</a></li>
+            </ul>
+          </div><!-- /navbar -->
+          <div role="main" class="ui-content">
+            Notifications page
+          </div>
         </div>
     </body>
 </html>
