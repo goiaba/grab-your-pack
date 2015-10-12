@@ -42,12 +42,16 @@
         <title>Grab Your Pack</title>
     </head>
     <body>
-        <!-- Help Page -->
+        <!--
+        Help Page
+        -->
         <div data-role="page" id="help-page" class="help-page swipeable">
             <div data-role="header">
                 <h3>Know Grab Your Pack</h3>
             </div>
+
             <div role="main" class="ui-content">
+
                 <div id="help-01" class="visible-page">
                     <p>Help text page 1</p>
                 </div>
@@ -78,16 +82,49 @@
             </div>
         </div>     
 
+        <!--
+        Sign In Page
+        -->
         <div data-role="page" id="choose-login-signup-page">
-            <p>login signup page</p>
+            <div data-role="header"><h3>Grab Your Pack</h3></div>
+
+            <div role="main" class="ui-content">
+                <p>Quickly Log In using</p>
+                <div class="ui-content">
+                    <button id="fb-button" class="ui-btn" type="submit" data-theme="a">Facebook</button>
+                </div>
+                <div class="ui-content">
+                    <a href="#app-login-page" class="ui-btn">Email</a>
+                </div>
+                <p>Don't have an account yet?</p>
+                <div class="ui-content">
+                    <a href="#signup-page" class="ui-btn">Sign Up</a>
+                </div>
+            </div>
+        </div>
+
+        <!--
+        Log In with Email
+        -->
+        <div data-role="page" id="app-login-page">
+            <div data-role="header"><h3>Grab Your Pack</h3></div>
+
+            <div role="main" class="ui-content">
+                <div class="ui-content">
+                    <form method="post" action="#">
+                        <a id="left" href="#choose-login-signup-page" class="ui-icon-arrow-l ui-btn-icon-top"></a>
+                        <label for="email" class="ui-hidden-accessible">Email</label>
+                        <input type="text" name="email" id="email" placeholder="Email">
+                        <label for="password" class="ui-hidden-accessible">Password</label>
+                        <input type="text" name="password" id="password" placeholder="Password">
+                        <a href="#" class="ui-btn">Log In</a>
+                    </form>
+                </div>
+            </div>
         </div>
 
         <div data-role="page" id="facebook-login-page">
             <p>facebook login page</p>
-        </div>
-
-        <div data-role="page" id="app-login-page">
-            <p>app login page</p>
         </div>
 
         <div data-role="page" id="signup-page">
