@@ -2,6 +2,16 @@
 #help-02-page { background-image: url("../img/help-02-page.png"); }
 #help-03-page { background-image: url("../img/help-03-page.png"); }*/
 
+/*General*/
+
+.ui-page-theme-a .ui-btn {
+	text-shadow: none;
+}
+
+.ui-page-theme-a .ui-btn:hover{
+	text-shadow: none;
+}
+/**/
 .help-page {
 	background-color: white;
     background-size: cover;
@@ -13,7 +23,7 @@
 	display: block;
 	width: 0.5em;
 	height: 0.5em;
-	font-weight: normal;	
+	font-weight: normal;
 	font-size: 1.2em;
 	-webkit-border-radius: 0.25em;
 	border-radius: 0.25em;
@@ -46,9 +56,10 @@
 }
 
 .hidden-page {
-	display: none;	
+	display: none;
 }
 
+/*Login CSS*/
 #fb-button {
 	background-color: rgb(60,90,151);
 	color: white;
@@ -66,3 +77,4 @@
 	background-size: cover;
 	color: white;
 }
+/*End Login Css*/
