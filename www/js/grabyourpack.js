@@ -36,6 +36,9 @@ function changeHelpBackground(pageNr) {
     var $helpPage = $('#help-page');
     var nextBgImage = BG_FILE_PATH.replace('#', pageNr);
     $helpPage.css('background','linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(' + nextBgImage + ')');
+    $helpPage.css('background-position', 'center center');
+    $helpPage.css('background-repeat', 'none');
+    $helpPage.css('background-size', 'cover');
 }
 
 $(document).on('swipeleft', '.swipeable', function(event) {
