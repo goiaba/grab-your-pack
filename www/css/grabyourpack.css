@@ -11,6 +11,10 @@
 .ui-page-theme-a .ui-btn:hover{
 	text-shadow: none;
 }
+
+.ui-page-theme-a {
+	text-shadow: none;
+}
 /**/
 .help-page {
 	background-color: white;
@@ -33,6 +37,9 @@
 	cursor: pointer;
 	float: left;
 }
+.left{
+	float: left;
+}
 
 .swipe-dot-view {
 	height: 1.5em;
@@ -47,7 +54,7 @@
 }
 
 .swipe-dot.current {
-	background-color: rgba(0, 0, 0, 0.3);
+	background-color: rgba(255, 255, 255, 0.3);
 	background-image: none;
 }
 
@@ -58,10 +65,32 @@
 .hidden-page {
 	display: none;
 }
+/******** Tutorial **********/
+#tutorial-01{ /*Should be implemented via JS*/
+	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/bg-1.png);
+	background-position: center center;
+	background-repeat: none;
+	background-size: cover;
+	color: white;
+}
 
-/*Login CSS*/
+
+
+/******* Login CSS *********/
 #fb-button {
 	background-color: rgb(60,90,151);
+	color: white;
+}
+#email-button{
+	background-color: rgb(19,120,227);
+	color: white;
+}
+#signup-button{
+	background-color: rgb(220,77,63);
+	color: white;
+}
+#tutorial-button{
+	background-color: rgb(250,131,58);
 	color: white;
 }
 
@@ -71,7 +100,7 @@
 }
 
 #choose-login-signup-page {
-	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/bg1.png);
+	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/bg-sign-in.png);
 	background-position: center center;
 	background-repeat: none;
 	background-size: cover;
