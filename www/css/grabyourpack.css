@@ -37,7 +37,7 @@ body{
 	-webkit-border-radius: 0.25em;
 	border-radius: 0.25em;
 	margin: 0.2em;
-	background-color: rgba(0, 0, 0, 0.1);
+	background-color: rgba(255, 255, 255, 0.3);
 	background-image: none;
 	cursor: pointer;
 	float: left;
@@ -59,7 +59,7 @@ body{
 }
 
 .swipe-dot.current {
-	background-color: rgba(255, 255, 255, 0.3);
+	background-color: rgba(255, 255, 255, 0.8);
 	background-image: none;
 }
 
@@ -80,7 +80,7 @@ body{
 	background-size: cover;
 	color: white;
 }
-div#tutorial-header.ui-header.ui-bar-inherit{
+div#transparent-header.ui-header.ui-bar-inherit{
 	background-color: transparent;
 	border-color: transparent;
 	color: white;
@@ -118,9 +118,9 @@ div#tutorial-footer.ui-footer.ui-bar-inherit.ui-footer-fixed.slideup{
 	background-color: rgb(19,120,227);
 	color: white;
 }
-#signup-button{
-	background-color: rgb(220,77,63);
-	color: white;
+.signup-button{
+	background-color: rgb(220,77,63) !important;
+	color: white !important;
 }
 #tutorial-button{
 	background-color: rgb(250,131,58);
@@ -145,6 +145,27 @@ div#tutorial-footer.ui-footer.ui-bar-inherit.ui-footer-fixed.slideup{
 
 #signup-page{
 	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/bg-5.png);
+	background-position: center center;
+	background-repeat: none;
+	background-size: cover;
+	color: white;
+}
+
+.ui-input-text{
+	margin: 0px;
+	border-width: 1px;
+	border-style: solid;
+}
+.ui-shadow-inset{
+	box-shadow: none;
+}
+.ui-corner-all{
+		border-radius: 0;
+}
+
+/******* Address Page*******/
+#address-page{
+	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/bg-4.png);
 	background-position: center center;
 	background-repeat: none;
 	background-size: cover;

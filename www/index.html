@@ -46,7 +46,7 @@
         Tutorial Page
         -->
         <div data-role="page" id="help-page" class="help-page swipeable">
-            <div id="tutorial-header" data-role="header">
+            <div id="transparent-header" data-role="header">
               <h3>GrabYourPack</h3>
             </div>
 
@@ -106,7 +106,7 @@
                 </div>
                 <div class="ui-content">
                     <p>Don't have an account yet?</p>
-                    <a id="signup-button" href="#signup-page" class="ui-btn">Sign Up</a>
+                    <a  href="#signup-page" class="ui-btn">signup-button</a>
                 </div>
                 <div class="ui-content">
                     <p>Do you need more info?</p>
@@ -141,18 +141,18 @@
 
         <!-- Sign Up Page  -->
         <div data-role="page" id="signup-page">
-			       <div data-role="header">
-               <h3>GrabYourPack</h3>
-             </div>
+          <div id="transparent-header"  data-role="header">
+            <h3>GrabYourPack</h3>
+          </div>
 
                 <div  role="main" class="signup ui-content">
                   <div >
                       <p>Quickly Sign Up using:</p>
-                      <button id="fb-button" class="ui-btn" type="submit" data-theme="a">Facebook</button>
+                      <a id="fb-button" href="#address-page" class="ui-btn ">Facebook</a>
                   </div>
                   <p>Or use your email:</p>
-                    <form method="post" action="#">
-                        <a  href="#choose-login-signup-page" class="ui-icon-arrow-l ui-btn-icon-top"></a>
+                    <form class="sign-up-text" method="post" action="#">
+                        <a  href="#help-page" class="ui-icon-arrow-l ui-btn-icon-top"></a>
                         <label for="Name" class="ui-hidden-accessible">Name</label>
                         <input type="text" name="name" id="name" placeholder="Name">
                         <label for="Last Name" class="ui-hidden-accessible">Last Name</label>
@@ -163,17 +163,20 @@
                         <input type="text" name="password" id="password" placeholder="Password">
                         <label for="Confirm Password" class="ui-hidden-accessible">Confirm Password</label>
                         <input type="text" name="confirmpassword" id="confirmpassword" placeholder="Confirm Password">
-                        <a href="#address-page" class="ui-btn">Sign Up</a>
+                        <a href="#address-page" class="signup-button ui-btn ">Sign Up</a>
                     </form>
                 </div>
         </div>
 
         <!-- Address Page -->
         <div data-role="page" id="address-page">
-            <div data-role="header"><h3>Grab Your Pack</h3></div>
+            <div id="transparent-header" data-role="header">
+              <h3>GrabYourPack</h3>
+            </div>
+
             <div role="main" class="address ui-content">
                 <form method="post" action="#">
-                    <a id="left" href="#choose-login-signup-page" class="ui-icon-arrow-l ui-btn-icon-top"></a>
+                    <a id="left" href="#signup-page" class="ui-icon-arrow-l ui-btn-icon-top"></a>
                     <label for="Address" class="ui-hidden-accessible">Address</label>
                     <input type="text" name="address" id="address" placeholder="Address">
                     <label for="Apartment Number" class="ui-hidden-accessible">Apartment Number</label>
@@ -185,19 +188,20 @@
                     <label for="Zip Code" class="ui-hidden-accessible">Zip Code</label>
                     <input type="text" name="zcode" id="zcode" placeholder="Zip Code">
                     <label for="Phone Number" class="ui-hidden-accessible">Phone Number</label>
-                    <input type="text" name="pnumber" id="zcode" placeholder="pnumber">
-                    <a href="#" class="ui-btn">Submit</a>
+                    <input type="text" name="pnumber" id="zcode" placeholder="Phone Number">
+                    <a href="#notify-page" class="signup-button ui-btn">Submit</a>
                 </form>
             </div>
         </div>
 
+        <!-- Notify  -->
         <div data-role="page" id="notify-page">
           <div data-role="panel" id="user-panel" data-display="push">
               panel content goes here
               Panel was open
           </div> <!--/panel -->
           <div data-role="header" style="overflow:hidden;">
-            <h3>Grab Your Pack</h3>
+            <h3>GrabYourPack</h3>
             <a href="#user-panel" data-icon="gear">Options</a>
             <div data-role="navbar">
             	<ul>
@@ -226,8 +230,9 @@
 
         </div><!-- /page -->
 
+        <!-- Notification Page -->
         <div data-role="page" id="notification-page">
-          <div data-role="header"><h3>Grab Your Pack</h3></div>
+          <div data-role="header"><h3>GrabYourPack</h3></div>
           <div data-role="navbar">
             <ul>
               <li><a href="#notify-page">Notify</a></li>
