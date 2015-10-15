@@ -83,7 +83,7 @@ div#tutorial-header.ui-header.ui-bar-inherit{
 	color: white;
 	text-shadow: none;
 	font-weight: 700;
-	font-size: 1.5em;
+	font-size: 1em;
 }
 
 div#tutorial-footer.ui-footer.ui-bar-inherit.ui-footer-fixed.slideup{
@@ -97,9 +97,12 @@ div#tutorial-footer.ui-footer.ui-bar-inherit.ui-footer-fixed.slideup{
 	border: none;
 }
 .tutorial-title{
-	margin-top: 30vh;
+	margin-top: 25vh;
 	font-weight: 700;
-	font-size: 2em;
+	font-size: 1.5em;
+}
+.tutorial-paragraph{
+	font-size: 0.7em;
 }
 
 
