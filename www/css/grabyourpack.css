@@ -133,10 +133,10 @@ div#tutorial-footer.ui-footer.ui-bar-inherit.ui-footer-fixed.slideup{
 }
 
 #choose-login-signup-page {
-	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/bg-6.png);
+	/*background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/bg-6.png);
 	background-position: center center;
 	background-repeat: none;
-	background-size: cover;
+	background-size: cover;*/
 	color: white;
 }
 

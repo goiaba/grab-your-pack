@@ -40,10 +40,10 @@ function changeHelpBackground(pageNr) {
 
 $(document).on('swipeleft', '.swipeable', function(event) {
     swipePage(event, 'left');
-    return false;         
+    return false;
 });
 
 $(document).on('swiperight', '.swipeable', function(event) {
     swipePage(event, 'right');
-    return false;            
+    return false;
 });
