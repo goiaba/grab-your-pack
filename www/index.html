@@ -81,7 +81,7 @@
             <div id="tutorial-footer" data-role="footer" data-position="fixed">
                 <fieldset class="ui-grid-a">
                     <div  class="ui-block-a">
-                        <a id="tutorial-sign-up" href="#notify-page" class="ui-btn" data-transition="slide" data-theme="a">Sign Up</a>
+                        <a id="tutorial-sign-up" href="#signup-page" class="ui-btn" data-transition="slide" data-theme="a">Sign Up</a>
                     </div>
                     <div  class="ui-block-b">
                         <a id="tutorial-sign-up"  href="#choose-login-signup-page" class="ui-btn" data-transition="slide" data-theme="a">Log In</a>
@@ -95,7 +95,7 @@
         Log In Page
         -->
         <div data-role="page" id="choose-login-signup-page">
-            <div data-role="header"><h3>Grab Your Pack</h3></div>
+            <div data-role="header"><h3>GrabYourPack</h3></div>
 
             <div role="main" class="ui-content">
               <a href="#help-page" class="ui-icon-arrow-l ui-btn-icon-top"></a>
@@ -141,15 +141,22 @@
 
         <!-- Sign Up Page  -->
         <div data-role="page" id="signup-page">
-			       <div data-role="header"><h3>Grab Your Pack</h3></div>
+			       <div data-role="header">
+               <h3>GrabYourPack</h3>
+             </div>
 
                 <div  role="main" class="signup ui-content">
+                  <div >
+                      <p>Quickly Sign Up using:</p>
+                      <button id="fb-button" class="ui-btn" type="submit" data-theme="a">Facebook</button>
+                  </div>
+                  <p>Or use your email:</p>
                     <form method="post" action="#">
                         <a  href="#choose-login-signup-page" class="ui-icon-arrow-l ui-btn-icon-top"></a>
                         <label for="Name" class="ui-hidden-accessible">Name</label>
                         <input type="text" name="name" id="name" placeholder="Name">
                         <label for="Last Name" class="ui-hidden-accessible">Last Name</label>
-                        <input type="text" name="lname" id="lname" placeholder="Email">
+                        <input type="text" name="lname" id="lname" placeholder="Last Name">
                         <label for="email" class="ui-hidden-accessible">Email</label>
                         <input type="text" name="email" id="email" placeholder="Email">
                         <label for="password" class="ui-hidden-accessible">Password</label>

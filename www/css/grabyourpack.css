@@ -5,6 +5,7 @@
 /*General*/
 body{
 	font-size: 18px !important;
+	height: 100%;
 }
 
 
@@ -70,6 +71,8 @@ body{
 	display: none;
 }
 /******** Tutorial **********/
+
+
 #help-page{ /*Should be implemented via JS*/
 	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/bg-1.png);
 	background-position: center center;
@@ -137,3 +140,13 @@ div#tutorial-footer.ui-footer.ui-bar-inherit.ui-footer-fixed.slideup{
 	color: white;
 }
 /*End Login Css*/
+
+/******* Sign Up *******/
+
+#signup-page{
+	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/bg-5.png);
+	background-position: center center;
+	background-repeat: none;
+	background-size: cover;
+	color: white;
+}
