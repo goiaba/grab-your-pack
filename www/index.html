@@ -139,8 +139,8 @@
 
         <!-- Sign Up Page  -->
         <div data-role="page" id="signup-page">
-			       <div data-role="header"><h3>Grab Your Pack</h3></div>
 
+ 			  <div data-role="header"><h3>Grab Your Pack</h3></div>
                 <div  role="main" class="signup ui-content">
                     <form method="post" action="#">
                         <a  href="#choose-login-signup-page" class="ui-icon-arrow-l ui-btn-icon-top"></a>
@@ -183,9 +183,14 @@
         </div>
 
         <div data-role="page" id="notify-page">
-          <div data-role="panel" id="user-panel" data-display="push">
-              panel content goes here
-              Panel was open
+          <div data-role="panel" id="user-panel">
+            <ul>
+              <li class="newsfeed"><a href="#" title="Home">Home Screen</a></li>
+              <li class="profile"><a href="#" title="Profile">Profile</a></li>
+              <li class="setting"><a href="#" title="Settings">Settings</a></li>
+              <li class="logout"><a href="#" title="Report">Report Bug</a></li>
+              <li class="report"><a href="#" title="Logout">Logout</a></li>
+            </ul>
           </div> <!--/panel -->
           <div data-role="header" style="overflow:hidden;">
             <h3>Grab Your Pack</h3>
@@ -213,20 +218,41 @@
               <div class="ui-block-d"><a href="#" class="ui-btn  ">331</a></div>
             </div><!-- /grid-c -->
           </div><!-- /content -->
-
-
         </div><!-- /page -->
 
         <div data-role="page" id="notification-page">
-          <div data-role="header"><h3>Grab Your Pack</h3></div>
-          <div data-role="navbar">
+          <div data-role="panel" id="user-panel">
             <ul>
-              <li><a href="#notify-page">Notify</a></li>
-              <li><a href="#" class="ui-btn-active ui-state-persist">notifications</a></li>
+              <li class="newsfeed"><a href="#" title="Home">Home Screen</a></li>
+              <li class="profile"><a href="#" title="Profile">Profile</a></li>
+              <li class="setting"><a href="#" title="Settings">Settings</a></li>
+              <li class="logout"><a href="#" title="Report">Report Bug</a></li>
+              <li class="report"><a href="#" title="Logout">Logout</a></li>
             </ul>
-          </div><!-- /navbar -->
+          </div> <!--/panel -->
+          <div data-role="header">
+            <h3>Grab Your Pack</h3>
+            <a href="#user-panel" data-icon="gear">Options</a>
+            <div data-role="navbar">
+              <ul>
+                <li><a href="#notify-page">Notify</a></li>
+                <li><a href="#" class="ui-btn-active ui-state-persist">notifications</a></li>
+              </ul>
+            </div><!-- /navbar -->
+          </div>
+
           <div role="main" class="ui-content">
-            Notifications page
+            <ul data-role="listview">
+              <li>
+                  <h2>New Package arrived</h2>
+                  <p><strong>One of your building-mates saw a package for you!</strong></p>
+                  <p class="ui-li-aside">Last update: October 13, 2015</p>
+              </li>
+              <li>
+                  <h3>New package arrived</h3>
+                  <p>Checkout your building lobby to get it!</p>
+              </li>
+            </ul>
           </div>
         </div>
     </body>
