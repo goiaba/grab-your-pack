@@ -3,6 +3,10 @@
 #help-03-page { background-image: url("../img/help-03-page.png"); }*/
 
 /*General*/
+body{
+	font-size: 18px !important;
+}
+
 
 .ui-page-theme-a .ui-btn {
 	text-shadow: none;
@@ -66,14 +70,32 @@
 	display: none;
 }
 /******** Tutorial **********/
-#tutorial-01{ /*Should be implemented via JS*/
+#help-page{ /*Should be implemented via JS*/
 	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/bg-1.png);
 	background-position: center center;
 	background-repeat: none;
 	background-size: cover;
 	color: white;
 }
+div#tutorial-header.ui-header.ui-bar-inherit{
+	background-color: transparent;
+	border-color: transparent;
+	color: white;
+	text-shadow: none;
+	font-weight: 700;
+	font-size: 1.5em;
+}
 
+div#tutorial-footer.ui-footer.ui-bar-inherit.ui-footer-fixed.slideup{
+	background-color: transparent;
+	border-color: transparent;
+}
+
+#tutorial-sign-up{
+	background-color: rgb(254,180,43);
+	color: white;
+	border: none;
+}
 
 
 /******* Login CSS *********/
