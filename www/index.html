@@ -95,7 +95,9 @@
         Log In Page
         -->
         <div data-role="page" id="choose-login-signup-page">
-            <div data-role="header"><h3>GrabYourPack</h3></div>
+          <div id="transparent-header" data-role="header">
+            <h3>GrabYourPack</h3>
+          </div>
 
             <div role="main" class="ui-content">
               <a href="#help-page" class="ui-icon-arrow-l ui-btn-icon-top"></a>
@@ -106,7 +108,7 @@
                 </div>
                 <div class="ui-content">
                     <p>Don't have an account yet?</p>
-                    <a  href="#signup-page" class="ui-btn">signup-button</a>
+                    <a  href="#signup-page" class="signup-button ui-btn">Sign Up </a>
                 </div>
                 <div class="ui-content">
                     <p>Do you need more info?</p>
@@ -119,7 +121,9 @@
         Log In with Email
         -->
         <div data-role="page" id="app-login-page">
-            <div data-role="header"><h3>Grab Your Pack</h3></div>
+          <div id="transparent-header" data-role="header">
+            <h3>GrabYourPack</h3>
+          </div>
 
             <div role="main" class="ui-content">
                 <a  href="#choose-login-signup-page" class="ui-icon-arrow-l ui-btn-icon-top"></a>
@@ -129,7 +133,7 @@
                         <input type="text" name="email" id="email" placeholder="Email">
                         <label for="password" class="ui-hidden-accessible">Password</label>
                         <input type="text" name="password" id="password" placeholder="Password">
-                        <a href="#" class="ui-btn">Log In</a>
+                        <a href="#address-page" class="signup-button ui-btn ">Log In</a>
                     </form>
                 </div>
             </div>
@@ -165,6 +169,10 @@
                         <input type="text" name="confirmpassword" id="confirmpassword" placeholder="Confirm Password">
                         <a href="#address-page" class="signup-button ui-btn ">Sign Up</a>
                     </form>
+                    <div >
+                        <p>Have an account?</p>
+                        <a id="signin-button" href="#choose-login-signup-page" class="ui-btn">Log In</a>
+                    </div>
                 </div>
         </div>
 
