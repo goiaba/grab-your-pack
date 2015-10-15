@@ -51,12 +51,14 @@
             </div>
 
             <div role="main" class="ui-content">
-                <div  class="visible-page">
+                <div id="help-01" class="visible-page">
                     <h3>Nice Explanation</h3>
                     <p>If you live in a building that does not have a reception desk
                         then you probably get very fearful when you buy an expensive
-                        item that will be delivered by a courrier.
-                    </p>
+                        item that will be delivered by a courrier. As longer as you 
+                        leave you packages unattended in the lobby the chances of they
+                        being stolen increases. GrabYourPack tries to minimize this 
+                        issue throughout a collaborative network of residents.</p>
                 </div>
 
                 <div id="help-02" class="hidden-page">
@@ -78,10 +80,10 @@
             </div>
             <div id="tutorial-footer" data-role="footer" data-position="fixed">
                 <fieldset class="ui-grid-a">
-                    <div  class="ui-block-a">
-                        <a id="tutorial-sign-up" href="#notify-page" class="ui-btn" data-transition="slide" data-theme="a">Sign Up</a>
+                    <div class="ui-block-a">
+                        <a id="tutorial-sign-up" href="#signup-page" class="ui-btn" data-transition="slide" data-theme="a">Sign Up</a>
                     </div>
-                    <div  class="ui-block-b">
+                    <div class="ui-block-b">
                         <a id="tutorial-sign-up"  href="#choose-login-signup-page" class="ui-btn" data-transition="slide" data-theme="a">Log In</a>
                     </div>
                 </fieldset>
@@ -139,8 +141,8 @@
 
         <!-- Sign Up Page  -->
         <div data-role="page" id="signup-page">
-
- 			  <div data-role="header"><h3>Grab Your Pack</h3></div>
+			 <div data-role="header"><h3>Grab Your Pack</h3></div>
+        
                 <div  role="main" class="signup ui-content">
                     <form method="post" action="#">
                         <a  href="#choose-login-signup-page" class="ui-icon-arrow-l ui-btn-icon-top"></a>
@@ -218,6 +220,8 @@
               <div class="ui-block-d"><a href="#" class="ui-btn  ">331</a></div>
             </div><!-- /grid-c -->
           </div><!-- /content -->
+
+
         </div><!-- /page -->
 
         <div data-role="page" id="notification-page">
