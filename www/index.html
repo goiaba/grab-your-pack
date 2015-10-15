@@ -52,22 +52,21 @@
 
             <div role="main" class="ui-content">
                 <div id="help-01" class="visible-page">
-                    <h3>Nice Explanation</h3>
-                    <p>If you live in a building that does not have a reception desk
-                        then you probably get very fearful when you buy an expensive
-                        item that will be delivered by a courrier. As longer as you 
-                        leave you packages unattended in the lobby the chances of they
-                        being stolen increases. GrabYourPack tries to minimize this 
-                        issue throughout a collaborative network of residents.</p>
+                    <h3 class="tutorial-title">Not home to receive a packages? No problem.</h3>
+                    <p class="tutorial-paragraph-1"> Let your good neighbors notify you as soon as your packages gets home.</p>
                 </div>
 
                 <div id="help-02" class="hidden-page">
-                    <p>Help text page 2</p>
+                  <h3 class="tutorial-title">The end of missed deliveries.</h3>
+                  <p class="tutorial-paragraph"> Forget the worries of not knowing when your package is delivered.
+                  </p>
                 </div>
 
 
                 <div id="help-03" class="hidden-page">
-                    <p>Help text page 3</p>
+                  <h3 class="tutorial-title">Get ready to never miss a package delivery again.</h3>
+                  <p class="tutorial-paragraph"> Get to know the exact time your package is in your front door.
+                  </p>
                 </div>
 
                 <div class="swipe-dot-view" align="center">
@@ -110,7 +109,7 @@
                 </div>
                 <div class="ui-content">
                     <p>Do you need more info?</p>
-                    <a id="tutorial-button" href="#signup-page" class="ui-btn">See tutorial</a>
+                    <a id="tutorial-button" href="#help-page" class="ui-btn">See tutorial</a>
                 </div>
             </div>
         </div>
@@ -141,8 +140,7 @@
 
         <!-- Sign Up Page  -->
         <div data-role="page" id="signup-page">
-			 <div data-role="header"><h3>Grab Your Pack</h3></div>
-        
+	       <div data-role="header"><h3>Grab Your Pack</h3></div>
                 <div  role="main" class="signup ui-content">
                     <form method="post" action="#">
                         <a  href="#choose-login-signup-page" class="ui-icon-arrow-l ui-btn-icon-top"></a>
@@ -185,14 +183,9 @@
         </div>
 
         <div data-role="page" id="notify-page">
-          <div data-role="panel" id="user-panel">
-            <ul>
-              <li class="newsfeed"><a href="#" title="Home">Home Screen</a></li>
-              <li class="profile"><a href="#" title="Profile">Profile</a></li>
-              <li class="setting"><a href="#" title="Settings">Settings</a></li>
-              <li class="logout"><a href="#" title="Report">Report Bug</a></li>
-              <li class="report"><a href="#" title="Logout">Logout</a></li>
-            </ul>
+          <div data-role="panel" id="user-panel" data-display="push">
+              panel content goes here
+              Panel was open
           </div> <!--/panel -->
           <div data-role="header" style="overflow:hidden;">
             <h3>Grab Your Pack</h3>
@@ -225,38 +218,15 @@
         </div><!-- /page -->
 
         <div data-role="page" id="notification-page">
-          <div data-role="panel" id="user-panel">
+          <div data-role="header"><h3>Grab Your Pack</h3></div>
+          <div data-role="navbar">
             <ul>
-              <li class="newsfeed"><a href="#" title="Home">Home Screen</a></li>
-              <li class="profile"><a href="#" title="Profile">Profile</a></li>
-              <li class="setting"><a href="#" title="Settings">Settings</a></li>
-              <li class="logout"><a href="#" title="Report">Report Bug</a></li>
-              <li class="report"><a href="#" title="Logout">Logout</a></li>
+              <li><a href="#notify-page">Notify</a></li>
+              <li><a href="#" class="ui-btn-active ui-state-persist">notifications</a></li>
             </ul>
-          </div> <!--/panel -->
-          <div data-role="header">
-            <h3>Grab Your Pack</h3>
-            <a href="#user-panel" data-icon="gear">Options</a>
-            <div data-role="navbar">
-              <ul>
-                <li><a href="#notify-page">Notify</a></li>
-                <li><a href="#" class="ui-btn-active ui-state-persist">notifications</a></li>
-              </ul>
-            </div><!-- /navbar -->
-          </div>
-
+          </div><!-- /navbar -->
           <div role="main" class="ui-content">
-            <ul data-role="listview">
-              <li>
-                  <h2>New Package arrived</h2>
-                  <p><strong>One of your building-mates saw a package for you!</strong></p>
-                  <p class="ui-li-aside">Last update: October 13, 2015</p>
-              </li>
-              <li>
-                  <h3>New package arrived</h3>
-                  <p>Checkout your building lobby to get it!</p>
-              </li>
-            </ul>
+            Notifications page
           </div>
         </div>
     </body>

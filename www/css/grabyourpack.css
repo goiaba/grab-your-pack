@@ -96,6 +96,11 @@ div#tutorial-footer.ui-footer.ui-bar-inherit.ui-footer-fixed.slideup{
 	color: white;
 	border: none;
 }
+.tutorial-title{
+	margin-top: 30vh;
+	font-weight: 700;
+	font-size: 2em;
+}
 
 
 /******* Login CSS *********/
