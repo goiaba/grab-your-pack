@@ -17,6 +17,7 @@ function swipePage(event, side) {
             nextSpan = currentSpan.prev('span');
         } else return;
 
+        changeHelpBackground(nextDivNr);
         var nextDiv = $(DIV_ID + nextDivNr);
         currentDiv.removeClass('visible-page');
         currentDiv.addClass('hidden-page');
@@ -29,6 +30,14 @@ function swipePage(event, side) {
     }
 }
 
+function changeHelpBackground(pageNr) {
+    const BG_FILE_PATH = 'img/bg-#.png';
+
+    var $helpPage = $('#help-page');
+    var nextBgImage = BG_FILE_PATH.replace('#', pageNr);
+    $helpPage.css('background','linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(' + nextBgImage + ')');
+}
+
 $(document).on('swipeleft', '.swipeable', function(event) {
     swipePage(event, 'left');
     return false;         
@@ -38,34 +47,3 @@ $(document).on('swiperight', '.swipeable', function(event) {
     swipePage(event, 'right');
     return false;            
 });
-
-// $(document).on('swipeleft', '.swipeable', function(event) {
-//     // This will prevent event triggering more then once
-//     if(event.handled !== true) {    
-//         var nextpage = $.mobile.activePage.next('[data-role="page"]');
-//         // swipe using id of next page if exists
-//         if (nextpage.length > 0 && nextpage.hasClass("swipeable")) {
-//             $.mobile.changePage(nextpage, {
-//                 transition: "slide", 
-//                 reverse: false
-//             }, true, true);
-//         }
-//         event.handled = true;
-//     }
-//     return false;         
-// });
-
-// $(document).on('swiperight', '.swipeable', function(event) {
-//     // This will prevent event triggering more then once
-//     if(event.handled !== true) {
-//         var prevpage = $(this).prev('[data-role="page"]');
-//         if (prevpage.length > 0) {
-//             $.mobile.changePage(prevpage, {
-//                 transition: "slide",
-//                 reverse: true
-//             }, true, true);
-//         }
-//         event.handled = true;
-//     }
-//     return false;            
-// });
