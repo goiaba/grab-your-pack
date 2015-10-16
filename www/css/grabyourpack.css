@@ -182,3 +182,18 @@ div#tutorial-footer.ui-footer.ui-bar-inherit.ui-footer-fixed.slideup{
 	background-size: cover;
 	color: white;
 }
+
+/********* NOTIFY PAGE *************/
+.building-number{
+	border-radius: 50%;
+	padding-top: 18px;
+	padding-bottom: 17px;
+	}
+
+	.notification-icon{
+			display: inline-block;
+			border: orange 1px solid;
+			border-radius: 50%;
+			width: 15px;
+			background-color: orange;
+	}
