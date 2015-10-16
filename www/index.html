@@ -101,7 +101,7 @@
               <a href="#help-page" class="ui-icon-arrow-l ui-btn-icon-top"></a>
                 <div class="ui-content">
                     <p>Quickly Log In using</p>
-                    <button id="fb-button" class="ui-btn" type="submit" data-theme="a">Facebook</button>
+                    <a id="fb-button" href="#notify-page" class="ui-btn">Facebook</a>
                     <a id="email-button" href="#app-login-page" class="ui-btn">Email</a>
                 </div>
                 <div class="ui-content">
@@ -131,15 +131,12 @@
                         <input type="text" name="email" id="email" placeholder="Email">
                         <label for="password" class="ui-hidden-accessible">Password</label>
                         <input type="text" name="password" id="password" placeholder="Password">
-                        <a href="#address-page" class="signup-button ui-btn ">Log In</a>
+                        <a href="#notify-page" class="signup-button ui-btn ">Log In</a>
                     </form>
                 </div>
             </div>
         </div>
 
-        <div data-role="page" id="facebook-login-page">
-            <p>facebook login page</p>
-        </div>
 
         <!-- Sign Up Page  -->
         <div data-role="page" id="signup-page">
@@ -217,7 +214,12 @@
             <div data-role="navbar">
             	<ul>
             		<li><a href="#" class="ui-btn-active ui-state-persist">Notify</a></li>
-            		<li><a href="#notification-page">notifications</a></li>
+            		<li>
+                  <a href="#notification-page">notifications
+                    <div class="notification-icon" >3</div>
+                  </a>
+
+                </li>
             	</ul>
             </div><!-- /navbar -->
           </div>
@@ -227,17 +229,19 @@
               <h3>building address goes here</h3>
             </div>
             <div class="ui-grid-c">
-            	<div class="ui-block-a"><a href="#" class="ui-btn  ">201</a></div>
-            	<div class="ui-block-b"><a href="#" class="ui-btn  ">211</a></div>
-            	<div class="ui-block-c"><a href="#" class="ui-btn  ">221</a></div>
-              <div class="ui-block-d"><a href="#" class="ui-btn  ">231</a></div>
-            	<div class="ui-block-a"><a href="#" class="ui-btn  ">301</a></div>
-            	<div class="ui-block-b"><a href="#" class="ui-btn  ">311</a></div>
-              <div class="ui-block-c"><a href="#" class="ui-btn  ">321</a></div>
-              <div class="ui-block-d"><a href="#" class="ui-btn  ">331</a></div>
+            	<div class="ui-block-a"><a href="#" class="ui-btn ">201</a></div>
+            	<div class=" ui-block-b"><a href="#" class="ui-btn ">211</a></div>
+            	<div class=" ui-block-c"><a href="#" class="ui-btn ">221</a></div>
+              <div class=" ui-block-d"><a href="#" class="ui-btn ">231</a></div>
+            	<div class=" ui-block-a"><a href="#" class="ui-btn ">301</a></div>
+            	<div class=" ui-block-b"><a href="#" class="ui-btn ">311</a></div>
+              <div class=" ui-block-c"><a href="#" class="ui-btn">321</a></div>
+              <div class=" ui-block-d"><a href="#" class="ui-btn">331</a></div>
             </div><!-- /grid-c -->
           </div><!-- /content -->
         </div><!-- /page -->
+
+
 
         <!-- Notification Page -->
         <div data-role="page" id="notification-page">
@@ -256,7 +260,10 @@
             <div data-role="navbar">
               <ul>
                 <li><a href="#notify-page">Notify</a></li>
-                <li><a href="#" class="ui-btn-active ui-state-persist">notifications</a></li>
+                <li>
+                  <a href="#" class="ui-btn-active ui-state-persist">Notifications</a>
+                </li>
+
               </ul>
             </div><!-- /navbar -->
           </div>
@@ -279,5 +286,8 @@
             </ul>
           </div>
         </div>
+
+
+
     </body>
 </html>
