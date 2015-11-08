@@ -1,0 +1,14 @@
+{
+  "name": "GrabYourPack",
+  "version": "0.1.0",
+  "description": "Cordova based hybrid mobile app to protect your packages",
+  "dependencies": {
+      "underscore": "~1.6",
+      "backbone": "~1.1",
+      "handlebars": "~4.0.4",
+      "requirejs": "~2.1",
+      "requirejs-text": "~2.0",
+      "jquery-mobile-bower": "1.4.2",
+      "jquery": "~1.10"
+  }
+}
