@@ -169,11 +169,8 @@ module.exports = (function () {
                 install: {
                     options: {
                         command: ['create', 'platform', 'plugin'],
+                        id: 'edu.luc.fall2015.comp422.grabyourpack',
                         platforms: '<%= config.supported %>',
-                        plugins: [
-                            'file',
-                            'dialogs'
-                        ],
                         name: 'grabYourPack'
                     }
                 },
@@ -194,6 +191,28 @@ module.exports = (function () {
                         command: 'run',
                         platforms: ['<%= config.platform %>']
                     }
+                },
+                plugin: {
+                    options: {
+                        command: 'plugin',
+                        platforms: ['<%= config.platform %>'],
+                        action: 'add',  
+                        plugins: [                 
+                            'file',
+                            'dialogs'
+                        ],
+                    }
+                },
+                facebookPlugin: {
+                    options: {
+                        command: 'plugin',
+                        platforms: ['<%= config.platform %>'],
+                        action: 'add',  
+                        plugins: [                 
+                            'com.phonegap.plugins.facebookconnect'
+                        ],
+                        args:['--variable','APP_ID=<ask_me>','--variable','APP_NAME=grabYourPack']
+                    }  
                 }
             }
         });
@@ -211,7 +230,9 @@ module.exports = (function () {
 
         // Create cordova project, add platforms and plugins.
         grunt.registerTask('create', [
-            'cordovacli:install'
+            'cordovacli:install',
+            'cordovacli:plugin',
+            'cordovacli:facebookPlugin'
         ]);
 
         // Build the app.
