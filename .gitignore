@@ -56,4 +56,5 @@ IOS/www/
 */bower_components/
 */cordova/
 
+#auto generated file. can be ignored
 */src/js/templates.js
