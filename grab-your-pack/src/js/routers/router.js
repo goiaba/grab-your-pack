@@ -1,15 +1,32 @@
 'use strict';
 
-define(['backbone', 'underscore', 'jquery', 'views/TutorialView'], 
-        function(Backbone, _, $, TutorialView) {
+define(['backbone', 'underscore', 'jquery',
+    'views/TutorialView', 'views/LoginView', 'views/LoginWithEmailView', 
+    'views/SignUpView', 'views/BuildingView', 'views/NotifyView',
+    'views/NotificationView'], 
+        function(Backbone, _, $, TutorialView, LoginView, LoginWithEmailView, 
+            SignUpView, BuildingView, NotifyView, NotificationView) {
+
     var AppRouter = Backbone.Router.extend({
 
         routes:{
-            '':'tutorial'
+            'choose-login-signup-page':'chooseLogin',
+            'app-login-page': 'login',
+            'address-page': 'building',
+            'signup-page': 'signup',
+            'notify-page': 'notify',
+            'notification-page': 'notification',
+            '*path':'tutorial'
         },
 
         pages: {
-            tutorial: new TutorialView()
+            tutorial: new TutorialView(),
+            login: new LoginWithEmailView(),
+            signup: new SignUpView(),
+            building: new BuildingView(),
+            notify: new NotifyView(),
+            notification: new NotificationView(),
+            chooseLogin: new LoginView()
         },
 
         initialize:function () {
@@ -22,9 +39,33 @@ define(['backbone', 'underscore', 'jquery', 'views/TutorialView'],
             $(document).on( 'pagecontainershow', _.bind(this.handlePageContainerShow, this));
         },
 
-        tutorial:function () {
-            console.log('#tutorial');
+        tutorial:function(path) {
+            console.log('path = ' + path);
             this.changePage(this.pages.tutorial);
+        },
+
+        login:function() {
+            this.changePage(this.pages.login);
+        },
+
+        signup:function() {
+            this.changePage(this.pages.signup);  
+        },
+
+        building:function() {
+            this.changePage(this.pages.building);
+        },
+
+        notify:function() {
+            this.changePage(this.pages.notify);
+        },
+
+        notification:function() {
+            this.changePage(this.pages.notification);
+        },
+
+        chooseLogin:function() {
+            this.changePage(this.pages.chooseLogin);
         },
 
         changePage:function (page) {

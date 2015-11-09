@@ -1,0 +1,48 @@
+<!-- Notification Page -->
+<div data-role="panel" id="user-panel2">
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Profile</a></li>
+        <li><a href="#">Preferences</a></li>
+        <li><a href="#">Logout</a></li>
+        <li><a href="#notification-page" data-rel="close">Close</a></li>
+    </ul>
+</div> <!--/panel -->
+
+<div data-role="header">
+    <h3>GrabYourPack</h3>
+    <a href="#user-panel2" data-icon="gear">Options</a>
+    <div data-role="navbar">
+        <ul>
+            <li>
+                <a href="#notify-page">Notify</a>
+            </li>
+            <li>
+                <a href="#notification-page" class="ui-btn-active ui-state-persist">Notifications</a>
+            </li>
+      </ul>
+    </div><!-- /navbar -->
+</div>
+
+<div role="main" class="ui-content">
+    <ul data-role="listview" data-inset="true">
+        <li data-role="list-divider">
+            Friday, September 8, 2015 <span class="ui-li-count">2</span>
+        </li>
+        <li>
+            <h3><strong>New Package Arrived!</strong></h3>
+            <p class="ui-li-aside"><strong>6:24</strong>PM</p>
+        </li>
+        <li>
+            <h3>Package arrived!</h3>
+            <p class="ui-li-aside"><strong>3:18</strong>AM</p>
+        </li>
+        <li data-role="list-divider">
+            Thursday, September 7, 2015 <span class="ui-li-count">1</span>
+        </li>
+        <li>
+            <h3>Package arrived!</h3>
+            <p class="ui-li-aside"><strong>4:48</strong>PM</p>
+        </li>
+    </ul>
+</div>
