@@ -18,8 +18,8 @@ define(['backbone', 'underscore', 'jquery', 'facebook', 'views/PageView', 'text!
             FB.login(function(response) {
                 if (response.status === 'connected') {
                     console.log('Welcome! Fetching your information.... ');
-                    FB.api('/me', function(response) {
-                        console.log('Successful login for: ' + response.name);
+                    FB.api('/me?fields=email,name', function(response) {
+                        console.log('Successful login for: ' + response.name + ' - ' + response.email);
                     });
                 } else {
                     alert('not logged in');

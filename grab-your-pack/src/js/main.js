@@ -7,7 +7,8 @@ require.config({
         'backbone': '../../bower_components/backbone/backbone',
         'jquery-mobile': '../../bower_components/jquery-mobile-bower/js/jquery.mobile-1.4.2',
         'text': '../../bower_components/requirejs-text/text',
-        'facebook': '../../bower_components/facebook/sdk' //'//connect.facebook.net/en_US/sdk'
+        'facebook': '../../bower_components/facebook/sdk',
+        // 'facebook': '//connect.facebook.net/en_US/sdk'
     },
     shim: {
 
