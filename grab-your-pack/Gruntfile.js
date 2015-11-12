@@ -211,7 +211,7 @@ module.exports = (function () {
                         plugins: [                 
                             'com.phonegap.plugins.facebookconnect'
                         ],
-                        args:['--variable','APP_ID=<ask_me>','--variable','APP_NAME=grabYourPack']
+                        args:['--variable','APP_ID=542898935891721','--variable','APP_NAME=grabYourPack']
                     }  
                 }
             }
