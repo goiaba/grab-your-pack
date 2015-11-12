@@ -54,7 +54,8 @@ module.exports = (function () {
                         almond: true,
                         include: ['main'],
                         out: '<%= config.dist %>/www/js/grab-your-pack.min.js',
-                        optimize: 'uglify'
+                        // optimize: 'uglify'
+                        optimize: 'none'
                     }
                 }
             },
@@ -209,7 +210,7 @@ module.exports = (function () {
                         platforms: ['<%= config.platform %>'],
                         action: 'add',  
                         plugins: [                 
-                            'com.phonegap.plugins.facebookconnect'
+                            'https://github.com/Wizcorp/phonegap-facebook-plugin/'
                         ],
                         args:['--variable','APP_ID=542898935891721','--variable','APP_NAME=grabYourPack']
                     }  

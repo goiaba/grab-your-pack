@@ -1,7 +1,7 @@
 'use strict';
 
-define(['backbone', 'underscore', 'jquery', 'facebook', 'views/PageView', 'text!../../templates/login.html'],
-    function(Backbone, _, $, FB, PageView, loginTemplate) {
+define(['backbone', 'underscore', 'jquery', 'views/PageView', 'text!../../templates/login.html'],
+    function(Backbone, _, $, PageView, loginTemplate) {
     
     var LoginView = PageView.extend({
 
@@ -15,17 +15,15 @@ define(['backbone', 'underscore', 'jquery', 'facebook', 'views/PageView', 'text!
 
         fbLogin:function(e) {
             e.preventDefault();
-            FB.login(function(response) {
-                if (response.status === 'connected') {
-                    console.log('Welcome! Fetching your information.... ');
-                    FB.api('/me?fields=email,name', function(response) {
-                        console.log('Successful login for: ' + response.name + ' - ' + response.email);
-                    });
-                } else {
-                    alert('not logged in');
-                    console.log('not logged in');
-                }
-            }, { scope: 'email' });
+
+            var fbLoginSuccess = function (userData) {
+                alert('UserInfo: ' + JSON.stringify(userData));
+            };
+
+            facebookConnectPlugin.login(['public_profile'],
+                fbLoginSuccess,
+                function (error) { console.log(error); }
+            );
         },
 
         render:function (eventName) {
