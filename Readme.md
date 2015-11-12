@@ -7,23 +7,30 @@ so they can grab it and avoid stolen packages.
 
 # Steps to run
 
-###Install grunt-cli (globally)
-sudo npm install -g grunt-cli
+#####Install grunt-cli (globally)
+  
+    sudo npm install -g grunt-cli
 
-###Install all the package dependencies
-npm install
+#####Install all the package dependencies
+  
+    npm install
 
-###Install all the bower dependencies
-bower install
+#####Install all the bower dependencies
 
-###Run the task to create the cordova project
-grunt create
+    bower install
 
-###Run the task to deploy the app to the browser
-grunt serve 
+#####Run the task to create the cordova project
 
-###Run the tast to deploy the app to the device
-grunt deploy
+    grunt create
 
-###Run the tast to deploy the app to the emulator
-grunt emulate
+#####Run the task to deploy the app to the browser
+
+    grunt serve 
+
+#####Run the task to deploy the app to the device
+
+    grunt deploy
+
+#####Run the task to deploy the app to the emulator
+
+    grunt emulate
