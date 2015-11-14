@@ -1,7 +1,7 @@
 'use strict';
 
-define(['backbone', 'underscore', 'jquery', 'views/PageView', 'text!../../templates/login.html'],
-    function(Backbone, _, $, PageView, loginTemplate) {
+define(['backbone', 'underscore', 'jquery', 'views/PageView', 'views/NotifyView', 'text!../../templates/login.html'],
+    function(Backbone, _, $, PageView, NotifyView, loginTemplate) {
     
     var LoginView = PageView.extend({
 
@@ -16,14 +16,28 @@ define(['backbone', 'underscore', 'jquery', 'views/PageView', 'text!../../templa
         fbLogin:function(e) {
             e.preventDefault();
 
-            var fbLoginSuccess = function (userData) {
-                alert('UserInfo: ' + JSON.stringify(userData));
-            };
+            var renderNotifyView = function() {
+                console.log('Rendering NotifyView from LoginView.');
+                Backbone.history.navigate('notify-page', { trigger: true, replace: true });
+            }
 
-            facebookConnectPlugin.login(['public_profile'],
-                fbLoginSuccess,
-                function (error) { console.log(error); }
-            );
+            var success = function(response) {
+                if (response.status === 'connected') {
+                    renderNotifyView();
+                } else {//if (response.status === 'not_ authorized') {
+                    facebookConnectPlugin.login(['public_profile'],
+                        function (error) { renderNotifyView(); },
+                        function (error) { 
+                            console.log(error);
+                            alert(error);
+                        },
+                        true
+                    );
+                // } else {
+                }
+            }
+
+            facebookConnectPlugin.getLoginStatus(function(response) { success(response); });
         },
 
         render:function (eventName) {

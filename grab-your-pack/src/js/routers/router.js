@@ -1,9 +1,9 @@
 'use strict';
 
 define(['backbone', 'underscore', 'jquery',
-    'views/TutorialView', 'views/LoginView', 'views/LoginWithEmailView', 
-    'views/SignUpView', 'views/BuildingView', 'views/NotifyView',
-    'views/NotificationView'], 
+        'views/TutorialView', 'views/LoginView', 'views/LoginWithEmailView', 
+        'views/SignUpView', 'views/BuildingView', 'views/NotifyView',
+        'views/NotificationView'], 
         function(Backbone, _, $, TutorialView, LoginView, LoginWithEmailView, 
             SignUpView, BuildingView, NotifyView, NotificationView) {
 
@@ -16,7 +16,8 @@ define(['backbone', 'underscore', 'jquery',
             'signup-page': 'signup',
             'notify-page': 'notify',
             'notification-page': 'notification',
-            '*path':'tutorial'
+            'tutorial-view':'tutorial',
+            'path*': 'pageNotFound'
         },
 
         pages: {
@@ -36,11 +37,14 @@ define(['backbone', 'underscore', 'jquery',
                 return false;
             });
             this.firstPage = true;
-            $(document).on( 'pagecontainershow', _.bind(this.handlePageContainerShow, this));
+            $(document).on('pagecontainershow', _.bind(this.handlePageContainerShow, this));
         },
 
-        tutorial:function(path) {
-            console.log('path = ' + path);
+        pageNotFound:function(path) {
+            alert('Route does not exist: ' + path);
+        },
+
+        tutorial:function() {
             this.changePage(this.pages.tutorial);
         },
 
@@ -79,16 +83,16 @@ define(['backbone', 'underscore', 'jquery',
                 $.mobile.initializePage();
                 this.firstPage = false;
             }
-            $( ':mobile-pagecontainer' ).pagecontainer( 'change', page.$el,
+            $(':mobile-pagecontainer').pagecontainer('change', page.$el,
                     { changeHash: false });
         },
 
         handlePageContainerShow: function (event, ui) {
             // Figure out what page we are showing and call 'PageView.show' on it
             // TODO: JQM 1.4.3 has ui.toPage, which would be preferred to getActivePage
-            var activePage = $( ':mobile-pagecontainer' ).pagecontainer( 'getActivePage' );
+            var activePage = $(':mobile-pagecontainer').pagecontainer('getActivePage');
             _.each(this.pages, function(page) {
-                if( activePage.get(0) === page.el ) {
+                if(activePage.get(0) === page.el) {
                     page.show(event, ui);
                 }
             });

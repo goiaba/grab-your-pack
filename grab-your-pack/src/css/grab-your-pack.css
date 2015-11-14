@@ -91,7 +91,7 @@ div#tutorial-footer.ui-footer.ui-bar-inherit.ui-footer-fixed.slideup{
 	border-color: transparent;
 }
 
-#tutorial-sign-up{
+#tutorial-sign-up, #tutorial-login {
 	background-color: rgb(254,180,43);
 	color: white;
 	border: none;
