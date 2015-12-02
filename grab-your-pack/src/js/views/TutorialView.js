@@ -5,30 +5,36 @@ define(['backbone', 'underscore', 'jquery', 'views/PageView', 'text!../../templa
     var TutorialView = PageView.extend({
 
         id: 'tutorial-view',
-
         template:_.template(tutorialTemplate),
-
         events: {
             'swipeleft': 'swipePageLeft',
-            'swiperight': 'swipePageRight'
+            'swiperight': 'swipePageRight',
+            'click #tutorial-sign-up': 'toSignup',
+            'click #tutorial-login': 'toLogin'
         },
-
         render:function (eventName) {
             this.$el.html(this.template());
             this.enhance();
             return this;
         },
-
         swipePageLeft:function (e) {
             this.swipePage(e, 'left');
             return false;
         },
-
         swipePageRight:function (e) {
             this.swipePage(e, 'right');
             return false;
         },
-
+        toSignup: function(e) {
+            e.preventDefault();
+            console.log('toSignup');
+            window.App.router.signup();
+        },
+        toLogin: function(e) {
+            e.preventDefault();
+            console.log('toLogin');
+            window.App.router.chooseLogin();
+        },
         swipePage:function (event, side) {
             const NUM_OF_PAGES = 3;
             const DIV_ID = '#tutorial-0';

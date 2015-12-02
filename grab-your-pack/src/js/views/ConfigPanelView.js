@@ -16,7 +16,7 @@ define(['backbone', 'underscore', 'jquery', 'views/PageView', 'text!../../templa
         logout:function(e) {
             e.preventDefault();
             facebookConnectPlugin.logout(function() {
-                Backbone.history.navigate('choose-login-signup-page', { trigger: true });
+                Backbone.history.navigate('choose-login-signup-page');
             });
         },
 

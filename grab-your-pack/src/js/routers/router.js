@@ -29,7 +29,16 @@ define(['backbone', 'underscore', 'jquery',
             login: new LoginWithEmailView(),
             signup: new SignUpView(),
             building: new BuildingView(),
-            notify: false,
+            notify: new NotifyView({ model: new Building({
+                    id: 116,
+                    address_1: "6230 N Kenmore Ave",
+                    address_2: "",
+                    city: "Chicago",
+                    state: "IL",
+                    country: "United States",
+                    zip_code: "60660"
+                })
+            }),
             notification: new NotificationView(),
             chooseLogin: new LoginView()
         },
@@ -77,7 +86,8 @@ define(['backbone', 'underscore', 'jquery',
                             //  belongs to it
                             var building = window.App.user.get('apartment').building;
                             console.log('building is ' + JSON.stringify(building));
-                            self.pages.notify = new NotifyView({ model: building });
+                            self.pages.notify.model = building;
+                            self.changePage(self.pages.notify);
                         } else {
                             self.getFacebookUserInfo(
                                 function(response) {
@@ -87,7 +97,8 @@ define(['backbone', 'underscore', 'jquery',
                                             console.dir(window.App);
                                             console.log('window.App.user set to ' + JSON.stringify(window.App.user));
                                             var building = window.App.user.get('apartment').building;
-                                            self.pages.notify = new NotifyView({ model: building });
+                                            self.pages.notify.model = building;
+                                            self.changePage(self.pages.notify);
                                         }
                                     );
                                 },
@@ -104,7 +115,6 @@ define(['backbone', 'underscore', 'jquery',
                 }
             );
         },
-
         notification:function() {
             var self = this;
             this.getFacebookLoginStatus(

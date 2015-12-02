@@ -14,11 +14,6 @@ define(['backbone', 'underscore', 'jquery', 'views/PageView', '../collections/ap
         initialize: function() {
             var self = this;
             this.collection = new ApartmentCollection([], { buildingId: this.model.id });
-            // this.listenTo(self.collection, 'change', window.App.router.changePage(self));
-            this.collection.fetch({ context: this.collection }).done(function() {
-                console.dir(self.collection.toJSON()[0].apartments);
-                window.App.router.changePage(self);
-            });
         },
         renderNotifications:function(e) {
             window.App.router.notification();
@@ -26,17 +21,20 @@ define(['backbone', 'underscore', 'jquery', 'views/PageView', '../collections/ap
         logout:function(e) {
             e.preventDefault();
             facebookConnectPlugin.logout(function() {
-                Backbone.history.navigate('choose-login-signup-page', { trigger: true, replace: true });
+                console.log('logged out');
+                window.App.router.tutorial();
             });
         },
         render:function (eventName) {
             var self = this;
-            $(this.el).html(this.template({ 
-                building: this.model,
-                apartments: this.collection.toJSON()[0].apartments,
-                userApt: window.App.user.get('apartment').unit
-            }));
-            this.enhance();
+            this.collection.fetch({ context: this.collection }).done(function() {
+                $(self.el).html(self.template({ 
+                    building: self.model,
+                    apartments: this.toJSON()[0].apartments,
+                    userApt: window.App.user.get('apartment').unit
+                }));
+                self.enhance();
+            });
             return this;
         }
 

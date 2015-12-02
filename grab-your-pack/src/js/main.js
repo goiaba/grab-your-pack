@@ -41,6 +41,6 @@ require(['backbone', 'jquery', 'jqm-config', 'config', 'routers/router'], functi
 
     $(document).on('deviceready', function() {
         //Try to navigate to notify-page.
-        Backbone.history.navigate('notify-page', { trigger: true, replace: true });
+        window.App.router.notify();
     });
 });
