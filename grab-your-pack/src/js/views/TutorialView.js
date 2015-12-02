@@ -14,7 +14,7 @@ define(['backbone', 'underscore', 'jquery', 'views/PageView', 'text!../../templa
         },
 
         render:function (eventName) {
-            $(this.el).html(this.template());
+            this.$el.html(this.template());
             this.enhance();
             return this;
         },

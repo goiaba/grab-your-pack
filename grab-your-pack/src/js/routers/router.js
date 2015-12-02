@@ -3,11 +3,15 @@
 define(['backbone', 'underscore', 'jquery',
         'views/TutorialView', 'views/LoginView', 'views/LoginWithEmailView', 
         'views/SignUpView', 'views/BuildingView', 'views/NotifyView',
-        'views/NotificationView'], 
+        'views/NotificationView', 'views/AlertView', 'models/person',
+        'models/building', 'collections/apartmentCollection'], 
         function(Backbone, _, $, TutorialView, LoginView, LoginWithEmailView, 
-            SignUpView, BuildingView, NotifyView, NotificationView) {
+            SignUpView, BuildingView, NotifyView, NotificationView, AlertView, Person, 
+            Building, ApartmentCollection) {
 
     var AppRouter = Backbone.Router.extend({
+
+        securePages: ['address-page', 'notify-page', 'notification-page'],
 
         routes:{
             'choose-login-signup-page':'chooseLogin',
@@ -25,7 +29,7 @@ define(['backbone', 'underscore', 'jquery',
             login: new LoginWithEmailView(),
             signup: new SignUpView(),
             building: new BuildingView(),
-            notify: new NotifyView(),
+            notify: false,
             notification: new NotificationView(),
             chooseLogin: new LoginView()
         },
@@ -61,43 +65,116 @@ define(['backbone', 'underscore', 'jquery',
         },
 
         notify:function() {
-            this.changePage(this.pages.notify);
+            var self = this;
+            this.getFacebookLoginStatus(
+                function(response) {
+                    if (response.status === 'connected') {
+                        console.log('connected to facebook.');
+                        if (window.App.user && window.App.user.get('apartment') && window.App.user.get('apartment').building.id) {
+                            console.log('window.App.user is ' + JSON.stringify(window.App.user));
+                            //We already have user information (including his apartment)
+                            //  so what we need is the building and the apartments that 
+                            //  belongs to it
+                            var building = window.App.user.get('apartment').building;
+                            console.log('building is ' + JSON.stringify(building));
+                            self.pages.notify = new NotifyView({ model: building });
+                        } else {
+                            self.getFacebookUserInfo(
+                                function(response) {
+                                    $.when(new Person({ 'email': response.email }).fetch()).then(
+                                        function(data, textStatus, jqXHR) {
+                                            window.App.user = new Person(data.user);
+                                            console.dir(window.App);
+                                            console.log('window.App.user set to ' + JSON.stringify(window.App.user));
+                                            var building = window.App.user.get('apartment').building;
+                                            self.pages.notify = new NotifyView({ model: building });
+                                        }
+                                    );
+                                },
+                                function(error) {
+                                    console.debug(error);
+                                    new AlertView({ type: 'error', message: error }).render();
+                                    self.changePage(self.pages.tutorial);
+                                }
+                            );
+                        }
+                    } else {
+                        self.changePage(self.pages.tutorial);
+                    }
+                }
+            );
         },
 
         notification:function() {
-            this.changePage(this.pages.notification);
+            var self = this;
+            this.getFacebookLoginStatus(
+                function(response) {
+                    if (response.status === 'connected') {
+                        self.changePage(self.pages.notification);
+                    } else {
+                        self.changePage(self.pages.tutorial);
+                    }
+                },
+                function(error) {
+                    console.debug(error);
+                    new AlertView({ type: 'error', message: error }).render();
+                    self.changePage(self.pages.tutorial);
+                }
+            );
         },
 
         chooseLogin:function() {
             this.changePage(this.pages.chooseLogin);
         },
-
         changePage:function (page) {
-            // Render and add page to DOM once
-            if ($('#' + page.id).length === 0) {
-                $('body').append(page.render().$el);
+            var self = this;
+            var proceed = function(self) {
+                if ($('#' + page.id).length === 0) {
+                    $('body').append(page.render().$el);
+                }
+
+                if (self.firstPage) {
+                    $.mobile.initializePage();
+                    self.firstPage = false;
+                }
+
+                $(':mobile-pagecontainer').pagecontainer('change', page.$el,
+                        { changeHash: false });
             }
-            if (this.firstPage) {
-                // We turned off $.mobile.autoInitializePage, but now that we've
-                // added our first page to the DOM, we can now call initializePage.
-                $.mobile.initializePage();
-                this.firstPage = false;
+
+            if (_.contains(this.securePages, page.id)) {
+                this.getFacebookLoginStatus(function(response) {
+                    if (response.status !== 'connected') {
+                        page = self.pages.tutorial;
+                    }
+                    proceed(self);
+                });
+            } else {
+                proceed(self);
             }
-            $(':mobile-pagecontainer').pagecontainer('change', page.$el,
-                    { changeHash: false });
         },
 
         handlePageContainerShow: function (event, ui) {
-            // Figure out what page we are showing and call 'PageView.show' on it
-            // TODO: JQM 1.4.3 has ui.toPage, which would be preferred to getActivePage
             var activePage = $(':mobile-pagecontainer').pagecontainer('getActivePage');
             _.each(this.pages, function(page) {
                 if(activePage.get(0) === page.el) {
                     page.show(event, ui);
                 }
             });
-        }
+        },
 
+        getFacebookLoginStatus:function(success, fail) {
+            facebookConnectPlugin.getLoginStatus(
+                function(response) { success(response); },
+                function(error) { if (fail) fail(error); else console.debug(error); }
+            );
+        },
+        getFacebookUserInfo: function(success, fail) {
+            facebookConnectPlugin.api('/me?fields=id,email,name', ['public_profile', 'email'],
+                function(response) { success(response); },
+                function(error) { if (fail) fail(error); else console.debug(error); }
+            );
+        }
     });
 
     return AppRouter;

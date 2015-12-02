@@ -1,6 +1,6 @@
 'use strict';
 
-define(['backbone', 'jquery', 'jquery-mobile'], function(Backbone) {
+define(['backbone', 'jquery', 'jquerymobile'], function(Backbone) {
 
     var PageView = Backbone.View.extend({
         role: 'page',
@@ -15,7 +15,13 @@ define(['backbone', 'jquery', 'jquery-mobile'], function(Backbone) {
             this.$el.page().enhanceWithin();
             return this;
         },
-
+        showAlert: function(type, message, errors) {
+            new AlertView({
+                type: type || 'info',
+                message: message || '',
+                errors: errors || []
+            }).render();
+        },
         // Override to add logic to execute on 'pagecontainershow'
         show: function(event, ui) {}
     });

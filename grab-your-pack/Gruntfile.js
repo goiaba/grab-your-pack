@@ -200,6 +200,7 @@ module.exports = (function () {
                         action: 'add',  
                         plugins: [                 
                             'file',
+                            'inappbrowser',
                             'dialogs'
                         ],
                     }

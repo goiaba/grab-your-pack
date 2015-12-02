@@ -189,4 +189,15 @@ div#tutorial-footer.ui-footer.ui-bar-inherit.ui-footer-fixed.slideup{
 	background-color: orange;
 }
 
-
+.popup.info{
+	background-color:#F9F9F9;
+}
+.popup.warning{
+	background-color: #FEFCCB;
+}
+.popup.error{
+	background-color: #FFD2D3;
+}
+.popup.success{
+	background-color: #D4FFCD;
+}

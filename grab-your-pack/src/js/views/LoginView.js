@@ -1,8 +1,13 @@
-'use strict';
+define(function(require) {
+    'use strict';
+    var Backbone = require('backbone'),
+        _ = require('underscore'),
+        $ = require('jquery'),
+        PageView = require('views/PageView'),
+        NotifyView = require('views/NotifyView'),
+        loginTemplate = require('text!../../templates/login.html'),
+        AlertView = require('views/AlertView');
 
-define(['backbone', 'underscore', 'jquery', 'views/PageView', 'views/NotifyView', 'text!../../templates/login.html'],
-    function(Backbone, _, $, PageView, NotifyView, loginTemplate) {
-    
     var LoginView = PageView.extend({
 
         id: 'choose-login-signup-page',
@@ -15,29 +20,16 @@ define(['backbone', 'underscore', 'jquery', 'views/PageView', 'views/NotifyView'
 
         fbLogin:function(e) {
             e.preventDefault();
-
-            var renderNotifyView = function() {
-                console.log('Rendering NotifyView from LoginView.');
-                Backbone.history.navigate('notify-page', { trigger: true, replace: true });
-            }
-
-            var success = function(response) {
-                if (response.status === 'connected') {
-                    renderNotifyView();
-                } else {//if (response.status === 'not_ authorized') {
-                    facebookConnectPlugin.login(['public_profile'],
-                        function (error) { renderNotifyView(); },
-                        function (error) { 
-                            console.log(error);
-                            alert(error);
-                        },
-                        true
-                    );
-                // } else {
-                }
-            }
-
-            facebookConnectPlugin.getLoginStatus(function(response) { success(response); });
+            facebookConnectPlugin.login(['email', 'public_profile'],
+                function (response) {
+                    console.log('calling window.App.router.notify();');
+                    window.App.router.notify();
+                },
+                function (error) { 
+                    new AlertView({ type: 'error', message: error }).render();
+                },
+                true
+            );
         },
 
         render:function (eventName) {
