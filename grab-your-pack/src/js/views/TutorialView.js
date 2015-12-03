@@ -28,12 +28,12 @@ define(['backbone', 'underscore', 'jquery', 'views/PageView', 'text!../../templa
         toSignup: function(e) {
             e.preventDefault();
             console.log('toSignup');
-            window.App.router.signup();
+            window.App.router.navigate('signup-page', { trigger: true });
         },
         toLogin: function(e) {
             e.preventDefault();
             console.log('toLogin');
-            window.App.router.chooseLogin();
+            window.App.router.navigate('choose-login-signup-page', { trigger: true });
         },
         swipePage:function (event, side) {
             const NUM_OF_PAGES = 3;

@@ -23,7 +23,7 @@ define(function(require) {
             var user = window.App.user;
 
             var toNotifyView = function(building) {
-                window.App.router.notify();
+                window.App.router.navigate('notify-page', { trigger: true });
             };
             var showAlert = function(errors) {
                 new AlertView({

@@ -12,13 +12,12 @@ define(['backbone', 'underscore', 'jquery', 'views/PageView', 'text!../../templa
             'click #logout2': 'logout'
         },
         renderNotify:function(e) {
-            window.App.router.notify();
+            window.App.router.navigate('notify-page', { trigger: true });
         },
         logout:function(e) {
             e.preventDefault();
             facebookConnectPlugin.logout(function() {
-                console.log('logged out');
-                window.App.router.tutorial();
+                window.App.router.navigate('tutorial-view', { trigger: true });
             });
         },
         render:function (eventName) {

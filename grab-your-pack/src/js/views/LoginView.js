@@ -22,8 +22,7 @@ define(function(require) {
             e.preventDefault();
             facebookConnectPlugin.login(['email', 'public_profile'],
                 function (response) {
-                    console.log('calling window.App.router.notify();');
-                    window.App.router.notify();
+                    window.App.router.navigate('notify-page', { trigger: true });
                 },
                 function (error) { 
                     new AlertView({ type: 'error', message: error }).render();

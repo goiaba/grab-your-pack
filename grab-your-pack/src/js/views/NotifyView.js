@@ -16,13 +16,13 @@ define(['backbone', 'underscore', 'jquery', 'views/PageView', '../collections/ap
             this.collection = new ApartmentCollection([], { buildingId: this.model.id });
         },
         renderNotifications:function(e) {
-            window.App.router.notification();
+            window.App.router.navigate('notification-page', { trigger: true });
         },
         logout:function(e) {
             e.preventDefault();
             facebookConnectPlugin.logout(function() {
                 console.log('logged out');
-                window.App.router.tutorial();
+                window.App.router.navigate('tutorial-view', { trigger: true });
             });
         },
         render:function (eventName) {

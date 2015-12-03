@@ -77,41 +77,36 @@ define(['backbone', 'underscore', 'jquery',
             var self = this;
             this.getFacebookLoginStatus(
                 function(response) {
-                    if (response.status === 'connected') {
-                        console.log('connected to facebook.');
-                        if (window.App.user && window.App.user.get('apartment') && window.App.user.get('apartment').building.id) {
-                            console.log('window.App.user is ' + JSON.stringify(window.App.user));
-                            //We already have user information (including his apartment)
-                            //  so what we need is the building and the apartments that 
-                            //  belongs to it
-                            var building = window.App.user.get('apartment').building;
-                            console.log('building is ' + JSON.stringify(building));
-                            self.pages.notify.model = building;
-                            self.changePage(self.pages.notify);
-                        } else {
-                            self.getFacebookUserInfo(
-                                function(response) {
-                                    $.when(new Person({ 'email': response.email }).fetch()).then(
-                                        function(data, textStatus, jqXHR) {
-                                            window.App.user = new Person(data.user);
-                                            console.dir(window.App);
-                                            console.log('window.App.user set to ' + JSON.stringify(window.App.user));
-                                            var building = window.App.user.get('apartment').building;
-                                            self.pages.notify.model = building;
-                                            self.changePage(self.pages.notify);
-                                        }
-                                    );
-                                },
-                                function(error) {
-                                    console.debug(error);
-                                    new AlertView({ type: 'error', message: error }).render();
-                                    self.changePage(self.pages.tutorial);
-                                }
-                            );
-                        }
+                    console.log('connected to facebook.');
+                    if (window.App.user && window.App.user.get('apartment') && window.App.user.get('apartment').building.id) {
+                        //We already have user information (including his apartment)
+                        //  so what we need is the building and the apartments that 
+                        //  belongs to it
+                        var building = window.App.user.get('apartment').building;
+                        self.pages.notify.model = building;
+                        self.changePage(self.pages.notify);
                     } else {
-                        self.changePage(self.pages.tutorial);
+                        self.getFacebookUserInfo(
+                            function(response) {
+                                $.when(new Person({ 'email': response.email }).fetch()).then(
+                                    function(data, textStatus, jqXHR) {
+                                        window.App.user = new Person(data.user);
+                                        var building = window.App.user.get('apartment').building;
+                                        self.pages.notify.model = building;
+                                        self.changePage(self.pages.notify);
+                                    }
+                                );
+                            },
+                            function(error) {
+                                console.debug(error);
+                                new AlertView({ type: 'error', message: error }).render();
+                                self.changePage(self.pages.tutorial);
+                            }
+                        );
                     }
+                },
+                function() {
+                    window.App.router.navigate('tutorial-view', { trigger: true });
                 }
             );
         },
@@ -119,20 +114,18 @@ define(['backbone', 'underscore', 'jquery',
             var self = this;
             this.getFacebookLoginStatus(
                 function(response) {
-                    if (response.status === 'connected') {
-                        self.changePage(self.pages.notification);
-                    } else {
-                        self.changePage(self.pages.tutorial);
-                    }
+                    self.changePage(self.pages.notification);
+                },
+                function() {
+                    window.App.router.navigate('tutorial-view', { trigger: true });
                 },
                 function(error) {
                     console.debug(error);
                     new AlertView({ type: 'error', message: error }).render();
-                    self.changePage(self.pages.tutorial);
+                    window.App.router.navigate('tutorial-view', { trigger: true });                    
                 }
             );
         },
-
         chooseLogin:function() {
             this.changePage(this.pages.chooseLogin);
         },
@@ -153,12 +146,15 @@ define(['backbone', 'underscore', 'jquery',
             }
 
             if (_.contains(this.securePages, page.id)) {
-                this.getFacebookLoginStatus(function(response) {
-                    if (response.status !== 'connected') {
+                this.getFacebookLoginStatus(
+                    function(response) {
+                        proceed(self);    
+                    },
+                    function() {
                         page = self.pages.tutorial;
+                        proceed(self);
                     }
-                    proceed(self);
-                });
+                );
             } else {
                 proceed(self);
             }
@@ -172,10 +168,15 @@ define(['backbone', 'underscore', 'jquery',
                 }
             });
         },
-
-        getFacebookLoginStatus:function(success, fail) {
+        getFacebookLoginStatus: function(ifLoggedIn, ifNotLoggedIn, fail) {
             facebookConnectPlugin.getLoginStatus(
-                function(response) { success(response); },
+                function(response) { 
+                    if (response.status === 'connected') {
+                        if (ifLoggedIn) ifLoggedIn(response);
+                    } else {
+                        if (ifNotLoggedIn) ifNotLoggedIn();
+                    }
+                },
                 function(error) { if (fail) fail(error); else console.debug(error); }
             );
         },
