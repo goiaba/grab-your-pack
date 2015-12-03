@@ -1,6 +1,6 @@
 'use strict';
 
-define(['backbone', 'jquery', 'jquerymobile'], function(Backbone) {
+define(['backbone', './AlertView', 'jquery', 'jquerymobile'], function(Backbone, AlertView) {
 
     var PageView = Backbone.View.extend({
         role: 'page',

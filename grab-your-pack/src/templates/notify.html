@@ -36,7 +36,7 @@
                 if (classCounter===classTypesLength-1) classCounter=0;
                 else classCounter++;
             %>
-            <div class="<%= currClassType %>"><a href="#" class="ui-btn ">
+            <div class="<%= currClassType %>"><a href="#" class="apartment-btn ui-btn" data-apartmentId="<%= apartment.id %>">
                 <%if (userApt === apartment.unit) {%>
                     <b><%= apartment.unit %></b>
                 <% } else { %>
