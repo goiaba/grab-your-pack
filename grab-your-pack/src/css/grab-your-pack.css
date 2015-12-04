@@ -104,10 +104,10 @@ div#tutorial-footer.ui-footer.ui-bar-inherit.ui-footer-fixed.slideup{
 	border: none;
 	/* height: 45px; */
 	font-size: 1.6em;
-	width: 80%;
+	/*width: 80%;*/
 	/* bottom: -15px; */
 	left: 0px;
-	margin: 0px;
+	/*margin: 0px;*/
 
 }
 .tutorial-title{
@@ -122,15 +122,15 @@ div#tutorial-footer.ui-footer.ui-bar-inherit.ui-footer-fixed.slideup{
 
 /******* Login CSS *********/
 
-.login-holder{
+/*.login-holder{
 	margin-top: 5% !important;
 }
-
+*/
 .logo-login{
 	margin-left: auto;
 	margin-right: auto;
 	width: 200px;
-	margin-top: 25%;
+	margin-top: 50px;
 }
 #fb-login {
 	background-color: rgb(64,98, 169);
