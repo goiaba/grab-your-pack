@@ -29,16 +29,7 @@ define(['backbone', 'underscore', 'jquery',
             login: new LoginWithEmailView(),
             signup: new SignUpView(),
             building: new BuildingView(),
-            notify: new NotifyView({ model: new Building({
-                    id: 116,
-                    address_1: "6230 N Kenmore Ave",
-                    address_2: "",
-                    city: "Chicago",
-                    state: "IL",
-                    country: "United States",
-                    zip_code: "60660"
-                })
-            }),
+            notify: new NotifyView(),
             notification: new NotificationView(),
             chooseLogin: new LoginView()
         },
@@ -111,10 +102,35 @@ define(['backbone', 'underscore', 'jquery',
             );
         },
         notification:function() {
+            console.log('notification...');
             var self = this;
             this.getFacebookLoginStatus(
                 function(response) {
-                    self.changePage(self.pages.notification);
+                    console.log('connected to facebook.');
+                    if (window.App.user && window.App.user.get('apartment').id) {
+                        //We already have user's apartment information
+                        var apartment = window.App.user.get('apartment');
+                        self.pages.notification.model = apartment;
+                        self.changePage(self.pages.notification);
+                    } else {
+                        self.getFacebookUserInfo(
+                            function(response) {
+                                $.when(new Person({ 'email': response.email }).fetch()).then(
+                                    function(data, textStatus, jqXHR) {
+                                        window.App.user = new Person(data.user);
+                                        var apartment = window.App.user.get('apartment');
+                                        self.pages.notification.model = apartment;
+                                        self.changePage(self.pages.notification);
+                                    }
+                                );
+                            },
+                            function(error) {
+                                console.debug(error);
+                                new AlertView({ type: 'error', message: error }).render();
+                                self.changePage(self.pages.tutorial);
+                            }
+                        );
+                    }
                 },
                 function() {
                     window.App.router.navigate('tutorial-view', { trigger: true });
@@ -122,7 +138,7 @@ define(['backbone', 'underscore', 'jquery',
                 function(error) {
                     console.debug(error);
                     new AlertView({ type: 'error', message: error }).render();
-                    window.App.router.navigate('tutorial-view', { trigger: true });                    
+                    window.App.router.navigate('tutorial-view', { trigger: true });
                 }
             );
         },

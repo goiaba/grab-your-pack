@@ -12,30 +12,29 @@ define(['backbone', 'underscore', 'jquery', 'views/PageView', '../collections/ap
             'click .apartment-btn': 'notifyApartment',
             'click #logout': 'logout'
         },
-        initialize: function() {
-            var self = this;
-            this.collection = new ApartmentCollection([], { buildingId: this.model.id });
-        },
         notifyApartment: function(e) {
             e.preventDefault();
-            var self = this;
             var apartmentToBeNotifiedNumber = $(e.target).text();
-            var apartmentToBeNotifiedId = $(e.target).attr('data-apartmentId');
-            var notification = new Notification({
-                personNotifierId: window.App.user.id,
-                apartmentNotifiedId: apartmentToBeNotifiedId,
-            });
-            notification.save([], {
-                success: function(model, response, options) {
-                    console.log('A notification was sent to occupants of the apartment ' + apartmentToBeNotifiedNumber);
-                    self.showAlert('info', 'A notification was sent to occupants of the apartment ' + apartmentToBeNotifiedNumber);
-                },
-                error: function(model, xhr, options) {
-                    console.error('The notification could not be sent due to an error.');
-                    console.dir(xhr);
-                    self.showAlert('error', 'The notification could not be sent due to an error.');
-                }
-            });
+            var confirmation = confirm('Send notification to apartment ' + apartmentToBeNotifiedNumber + '?');
+            if (confirmation) {
+                var self = this;
+                var apartmentToBeNotifiedId = $(e.target).attr('data-apartmentId');
+                var notification = new Notification({
+                    person_id: window.App.user.id,
+                    apartment_id: apartmentToBeNotifiedId,
+                });
+                notification.save([], {
+                    success: function(model, response, options) {
+                        console.log('A notification was sent to occupants of the apartment ' + apartmentToBeNotifiedNumber);
+                        self.showAlert('info', 'A notification was sent to occupants of the apartment ' + apartmentToBeNotifiedNumber);
+                    },
+                    error: function(model, xhr, options) {
+                        console.error('The notification could not be sent due to an error.');
+                        console.dir(xhr);
+                        self.showAlert('error', 'The notification could not be sent due to an error.');
+                    }
+                });
+            }
         },
         renderNotifications:function(e) {
             window.App.router.navigate('notification-page', { trigger: true });
@@ -44,22 +43,41 @@ define(['backbone', 'underscore', 'jquery', 'views/PageView', '../collections/ap
             e.preventDefault();
             facebookConnectPlugin.logout(function() {
                 console.log('logged out');
+                delete window.App.user;
                 window.App.router.navigate('tutorial-view', { trigger: true });
             });
         },
         render:function (eventName) {
-            var self = this;
-            this.collection.fetch({ context: this.collection }).done(function() {
-                $(self.el).html(self.template({ 
-                    building: self.model,
-                    apartments: this.toJSON()[0].apartments,
-                    userApt: window.App.user.get('apartment').unit
-                }));
-                self.enhance();
-            });
+            if (this.model && this.model.id) {
+                var self = this;
+                if (!this.collection) this.collection = new ApartmentCollection();
+                this.collection.buildingId = this.model.id;
+                var deferredCollFetch = this.collection.fetch({ context: this.collection });
+                deferredCollFetch.done(function() {
+                    $(self.el).html(self.template({ 
+                        building: self.model,
+                        apartments: this.toJSON()[0].apartments.sort(function(a,b) {
+                            return (a.unit > b.unit) ? 1 
+                                 : (a.unit < b.unit) ? -1 
+                                 : 0;
+                        }),
+                        userApt: window.App.user.get('apartment').unit
+                    }));
+                    self.enhance();
+                });
+                deferredCollFetch.fail(function() {
+                   $(self.el).html(self.template({ 
+                        building: self.model,
+                        apartments: [],
+                        userApt: window.App.user.get('apartment').unit
+                    }));
+                    self.enhance(); 
+                });
+            } else {
+                self.showAlert('error', 'A Building model must be provided to NotifyView.');
+            }
             return this;
         }
-
     });
     return NotifyView;
 });

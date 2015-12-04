@@ -7,6 +7,9 @@ body{
 	font-size: 18px !important;	
 	height: 100vh !important;
 }
+.building-name{
+	margin-top: 0;
+}
 
 .ui-mobile .ui-page {
 	min-height: 100vh !important;

@@ -24,9 +24,10 @@ define(function(require) {
                         self.showAlert('info', 'Please review the following information:', data.errors);
                     } else {
                         window.App.user = new Person(data.user);
-                        window.router.building();
+                        window.App.router.navigate('address-page', { trigger: true });
                     }
                 }).fail(function(jqXHR) {
+                    console.dir(jqXHR);
                     self.showAlert('info', 'Please review the following information:', jqXHR.responseJSON.errors);
                 });
             }

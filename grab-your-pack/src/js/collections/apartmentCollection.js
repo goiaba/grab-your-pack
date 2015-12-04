@@ -12,15 +12,16 @@ define(function(require) {
                 return config.api.url + '/buildings/' + this.buildingId + '/apartments';
             },
             initialize: function(models, options) {
-                if (options.buildingId) {
+                if (options && options.buildingId) {
                     this.buildingId = options.buildingId;
                 } else {
-                    throw new MissingBuildingIdException();
+                    // throw new MissingBuildingIdException();
+                    this.buildingId = 0;
                 }
             },
             MissingBuildingIdException: function() {
                this.name = 'MissingBuildingIdException';
-               this.message = 'a building id must be provided in order to request Notifications from the server';
+               this.message = 'a building id must be provided in order to request its apartments from the server';
                this.toString = function() {
                   return this.value + this.message;
                };

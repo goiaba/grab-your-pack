@@ -1,47 +1,41 @@
 <!-- Notify  -->
-<div data-role="panel" id="user-panel">
-    <p><a href="#">Home</a></p>
-    <p><a href="#">Profile</a></p>
-    <p><a href="#">Preferences</a></p>
-    <p><a id="logout">Sign out of GrabYourPack</a></p>
-</div> <!--/panel -->
-
 <div data-role="header" style="overflow:hidden;">
-	<h3>GrabYourPack</h3>
-	<a href="#user-panel" data-icon="gear">Options</a>
-	<div data-role="navbar">
-		<ul>
-			<li><a href="#" class="ui-btn-active ui-state-persist">Notify</a></li>
-			<li>
-	  			<a href="#notification-page">Notifications</a>
-			</li>
-		</ul>
-	</div><!-- /navbar -->
+    <h3>GrabYourPack</h3>
+    <a href="#user-panel" data-icon="gear">Options</a>
+    <div data-role="navbar">
+        <ul>
+            <li><a href="#" class="ui-btn-active ui-state-persist">Notify</a></li>
+            <li>
+                <a href="#notification-page">Notifications</a>
+            </li>
+        </ul>
+    </div><!-- /navbar -->
 </div>
 
 <div role="main" class="ui-content">
-	<div data-type="horizontal">
-		<h3><%= building.address_1 %></h3>
+    <div data-type="horizontal">
+        <h3 class="building-name"><%= building.address_1 %></h3>
     </div>
     <div class="ui-grid-c">
-    	<% 
-    	if (apartments && apartments.length > 0) {
+        <% 
+        if (apartments && apartments.length > 0) {
             var classCounter = 0;
             var classTypes = ['a', 'b', 'c', 'd'];
-    		var classTypesLength = classTypes.length;
-    		var currClassType = 'ui-block-';
+            var classTypesLength = classTypes.length;
+            var currClassType = 'ui-block-';
             _.each(apartments, function(apartment) {
                 currClassType = currClassType.replace(/(ui-block-).*/, '$1' + classTypes[classCounter]);
                 if (classCounter===classTypesLength-1) classCounter=0;
                 else classCounter++;
             %>
-            <div class="<%= currClassType %>"><a href="#" class="apartment-btn ui-btn" data-apartmentId="<%= apartment.id %>">
-                <%if (userApt === apartment.unit) {%>
-                    <b><%= apartment.unit %></b>
+            <div class="<%= currClassType %>">
+                <%
+                if (userApt == apartment.unit) {%>
+                    <a href="#" style="color: rgb(130,188,226);" class="apartment-btn ui-btn" data-apartmentId="<%= apartment.id %>"><%= apartment.unit %></a>
                 <% } else { %>
-                    <%= apartment.unit %>
+                    <a href="#" class="apartment-btn ui-btn" data-apartmentId="<%= apartment.id %>"><%= apartment.unit %></a>
                 <%}%>
-            </a></div>
+            </div>
             <%
             }); 
         } else {

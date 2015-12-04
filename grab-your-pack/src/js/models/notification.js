@@ -6,9 +6,10 @@ define(['backbone', 'config'], function(Backbone, config) {
  		url: config.api.url + '/notifications',
      	defaults: {
      		id: null,
-        	personNotifierId: null,
-        	apartmentNotifiedId: null,
-        	notificationType: 'PACKAGE'
+        	person_id: null,
+        	apartment_id: null,
+        	created_at: null,
+        	notification_type: 'PACKAGE'
     	}
 	});
  
