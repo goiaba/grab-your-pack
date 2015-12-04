@@ -1,9 +1,12 @@
+
+
 @import "../../bower_components/jquery-mobile-bower/css/jquery.mobile-1.4.2.css";
 
 /*General*/
 body{
 	font-size: 18px !important;
-	height: 100%;
+	
+	height: 100vh !important;
 }
 
 
@@ -76,6 +79,7 @@ body{
 	background-repeat: none;
 	background-size: cover;
 	color: white;
+
 }
 div#transparent-header.ui-header.ui-bar-inherit{
 	background-color: transparent;
