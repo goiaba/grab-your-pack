@@ -52,8 +52,10 @@ define(['backbone', 'underscore', 'jquery', 'views/PageView', '../collections/ap
                 var self = this;
                 if (!this.collection) this.collection = new ApartmentCollection();
                 this.collection.buildingId = this.model.id;
+                console.log('rendering...');
                 var deferredCollFetch = this.collection.fetch({ context: this.collection });
                 deferredCollFetch.done(function() {
+                    console.log('deferred done...');
                     $(self.el).html(self.template({ 
                         building: self.model,
                         apartments: this.toJSON()[0].apartments.sort(function(a,b) {
@@ -66,7 +68,8 @@ define(['backbone', 'underscore', 'jquery', 'views/PageView', '../collections/ap
                     self.enhance();
                 });
                 deferredCollFetch.fail(function() {
-                   $(self.el).html(self.template({ 
+                    console.log('deferred fail...');
+                    $(self.el).html(self.template({
                         building: self.model,
                         apartments: [],
                         userApt: window.App.user.get('apartment').unit

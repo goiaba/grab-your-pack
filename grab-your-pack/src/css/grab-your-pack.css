@@ -19,6 +19,10 @@ body{
 	text-shadow: none;
 }
 
+.ui-li-aside{
+	top: 1.7em !important;
+}
+
 .ui-page-theme-a .ui-btn:hover{
 	text-shadow: none;
 }
