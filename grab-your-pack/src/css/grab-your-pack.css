@@ -246,3 +246,20 @@ div#tutorial-footer.ui-footer.ui-bar-inherit.ui-footer-fixed.slideup{
 .popup.success{
 	background-color: #D4FFCD;
 }
+
+/*Options*/
+
+#user-panel{
+	background-color: rgb(233,233,233);
+}
+
+#user-panel2{
+	background-color: rgb(233,233,233);
+}
+#user-panel ul{
+	padding-left: 0 !important;
+}
+
+#user-panel2 ul{
+	padding-left: 0 !important;
+}

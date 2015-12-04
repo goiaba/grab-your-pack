@@ -1,8 +1,12 @@
 <!-- Notification Page -->
 <div data-role="panel" id="user-panel">
-    <p><a href="#">Profile</a></p>
-    <p><a href="#">Preferences</a></p>
-    <p><a id="logout2">Sign out of GrabYourPack</a></p>
+    <h2>Hello, <%= window.App.user.get('first_name') %></h2>
+
+    <ul>    
+        <li ><a href="#" class="ui-icon-user ui-btn">Profile</a></li>
+        <li ><a  href="#" class="ui-icon-user ui-btn">Preferences</a></li>
+        <li><a id="logout" class="ui-icon-user ui-btn">Sign out</a></li>
+    </ul>
 </div> <!--/panel -->
 
 <!-- Notify  -->
