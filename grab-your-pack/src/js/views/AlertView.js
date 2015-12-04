@@ -42,7 +42,10 @@ define(function(require) {
                 message: this.options.message,
                 errors: this.options.errors
             };
+            
             this.$el.html(this.template(data));
+            
+
             $('#alertPopup').trigger('create');
             $('#alertPopup').popup({
                 afterclose:function(event, ui) {

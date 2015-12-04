@@ -4,11 +4,13 @@
 
 /*General*/
 body{
-	font-size: 18px !important;
-	
+	font-size: 18px !important;	
 	height: 100vh !important;
 }
 
+.ui-mobile .ui-page {
+	min-height: 100vh !important;
+}
 
 .ui-page-theme-a .ui-btn {
 	text-shadow: none;
@@ -42,7 +44,7 @@ body{
 
 .swipe-dot-view {
 	height: 1.5em;
-	bottom: 50px;
+	bottom: 250px;
 	left: 45%;
 	-webkit-box-orient: horizontal;
 	box-orient: horizontal;
@@ -96,9 +98,17 @@ div#tutorial-footer.ui-footer.ui-bar-inherit.ui-footer-fixed.slideup{
 }
 
 #tutorial-sign-up, #tutorial-login {
-	background-color: rgb(254,180,43);
-	color: white;
+	
+	background-color: #107c87;
+	color: #fff;
 	border: none;
+	/* height: 45px; */
+	font-size: 1.6em;
+	width: 80%;
+	/* bottom: -15px; */
+	left: 0px;
+	margin: 0px;
+
 }
 .tutorial-title{
 	margin-top: 25vh;
@@ -111,21 +121,41 @@ div#tutorial-footer.ui-footer.ui-bar-inherit.ui-footer-fixed.slideup{
 
 
 /******* Login CSS *********/
-#fb-button {
-	background-color: rgb(60,90,151);
-	color: white;
+
+.login-holder{
+	margin-top: 5% !important;
 }
-#email-button{
-	background-color: rgb(19,120,227);
+
+.logo-login{
+	margin-left: auto;
+	margin-right: auto;
+	width: 200px;
+	margin-top: 25%;
+}
+#fb-login {
+	background-color: rgb(64,98, 169);
+	border-color: rgb(64,98, 169);
 	color: white;
+	font-size: 1.2em;
+}
+
+#email-button{
+	background-color: rgb(252,93, 100);
+	border-color: rgb(252,93, 100);
+	font-size: 1.2em;
+	color: #fff;
 }
 .signup-button{
-	background-color: rgb(220,77,63) !important;
 	color: white !important;
+	background-color: rgb(130, 188,226) !important;
+	border-color: rgb(130, 188,226) !important;
+	font-size: 1.2em;
 }
 #tutorial-button{
-	background-color: rgb(250,131,58);
-	color: white;
+	color: white !important;
+	background-color: rgb( 67, 186, 169) !important;
+	border-color: rgb(67, 186, 169) !important;
+	font-size: 1.2em;
 }
 
 .ui-btn-icon-notext::after, .ui-btn-icon-top::after, .ui-btn-icon-bottom::after {
@@ -151,6 +181,8 @@ div#tutorial-footer.ui-footer.ui-bar-inherit.ui-footer-fixed.slideup{
 }
 
 /******* Sign Up *******/
+
+
 #signup-page{
 	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/bg-5.png);
 	background-position: center center;
@@ -159,8 +191,10 @@ div#tutorial-footer.ui-footer.ui-bar-inherit.ui-footer-fixed.slideup{
 	color: white;
 }
 #signin-button{
-	background-color: rgb(254,180,43);
-	color: white;
+	color: white !important;
+	background-color: #107c87 !important;
+	border-color: #107c87 !important;
+	font-size: 1.2em;
 }
 
 .ui-input-text{
