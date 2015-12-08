@@ -17,7 +17,7 @@ so they can grab it and avoid stolen packages.
 
 #####Install all the bower dependencies
 
-[CordovaDialogPlugin](https://github.com/goiaba/cordova-dialog-plugin) is a separate project and must be checked out in order to be installed by bower. After checking it out, change the path corresponding to the plugin inside the bower.json file accordingly. Only after these steps you are ready to run the following command:
+[CordovaDialogPlugin](https://github.com/sauloaguiar/cordova-dialog-plugin) is a separate project and must be checked out in order to be installed by bower. After checking it out, change the path corresponding to the plugin inside the bower.json file accordingly. Only after these steps you are ready to run the following command:
 
     bower install
 
