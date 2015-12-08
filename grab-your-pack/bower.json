@@ -11,6 +11,7 @@
     "jquery-mobile-bower": "1.4.2",
     "jquery": "~1.10",
     "facebookConnectPlugin": "https://cdn.rawgit.com/Wizcorp/phonegap-facebook-plugin/master/facebookConnectPlugin.js",
-    "backbone-validation": "~0.11.5"
+    "backbone-validation": "~0.11.5",
+    "CordovaDialogPlugin": "../../cordova-dialog-plugin/CordovaDialogPlugin"
   }
 }

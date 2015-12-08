@@ -14,27 +14,29 @@ define(['backbone', 'underscore', 'jquery', 'views/PageView', '../collections/ap
         },
         notifyApartment: function(e) {
             e.preventDefault();
+            var self = this;
             var apartmentToBeNotifiedNumber = $(e.target).text();
-            var confirmation = confirm('Send notification to apartment ' + apartmentToBeNotifiedNumber + '?');
-            if (confirmation) {
-                var self = this;
-                var apartmentToBeNotifiedId = $(e.target).attr('data-apartmentId');
-                var notification = new Notification({
-                    person_id: window.App.user.id,
-                    apartment_id: apartmentToBeNotifiedId,
-                });
-                notification.save([], {
-                    success: function(model, response, options) {
-                        console.log('A notification was sent to occupants of the apartment ' + apartmentToBeNotifiedNumber);
-                        self.showAlert('info', 'A notification was sent to occupants of the apartment ' + apartmentToBeNotifiedNumber);
-                    },
-                    error: function(model, xhr, options) {
-                        console.error('The notification could not be sent due to an error.');
-                        console.dir(xhr);
-                        self.showAlert('error', 'The notification could not be sent due to an error.');
-                    }
-                });
-            }
+            CordovaDialogPlugin.confirm('Confirm notification', 'Send notification to apartment ' + apartmentToBeNotifiedNumber + '?', 'Yes', 'No',
+                function(status) {
+                    var apartmentToBeNotifiedId = $(e.target).attr('data-apartmentId');
+                    var notification = new Notification({
+                        person_id: window.App.user.id,
+                        apartment_id: apartmentToBeNotifiedId,
+                    });
+                    notification.save([], {
+                        success: function(model, response, options) {
+                            console.log('A notification was sent to occupants of the apartment ' + apartmentToBeNotifiedNumber);
+                            CordovaDialogPlugin.alert('Confirmation', 'A notification was sent to occupants of the apartment ' + apartmentToBeNotifiedNumber, 'Ok');
+                        },
+                        error: function(model, xhr, options) {
+                            console.error('The notification could not be sent due to an error.');
+                            console.dir(xhr);
+                            CordovaDialogPlugin.alert('Error', 'The notification could not be sent due to an error.', 'Ok');  
+                        }
+                    });    
+                }, 
+                function(error) { alert(error); }
+            );
         },
         renderNotifications:function(e) {
             window.App.router.navigate('notification-page', { trigger: true });
