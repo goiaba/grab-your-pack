@@ -1,0 +1,64 @@
+<!-- Notification Page -->
+<div data-role="panel" id="user-panel2">
+    <h2>Hello, <%= window.App.user.get('first_name') %></h2>
+
+    <ul>    
+        <li ><a href="#" class="ui-icon-user ui-btn" >Profile</a></li>
+        <li ><a  href="#" class="ui-icon-user ui-btn">Preferences</a></li>
+        <li ><a id="logout2" class="ui-icon-user ui-btn" >Sign out</a></li>
+    </ul>
+</div> <!--/panel -->
+
+<div data-role="header">
+    <h3>GrabYourPack</h3>
+    <a href="#user-panel2" data-icon="gear">Options</a>
+    <div data-role="navbar">
+        <ul>
+            <li>
+                <a href="#notify-page">Notify</a>
+            </li>
+            <li>
+                <a href="#" class="ui-btn-active ui-state-persist">Notifications</a>
+            </li>
+      </ul>
+    </div><!-- /navbar -->
+</div>
+
+<div role="main" class="ui-content">
+    <% console.dir(notifications);
+    if (notifications) { %>
+        <ul data-role="listview" data-inset="true">
+        <%
+        for (prop in notifications) {
+            if (notifications.hasOwnProperty(prop)) { %>
+                <li data-role="list-divider">
+                    <%= prop %><span class="ui-li-count"><%= notifications[prop].length %></span>
+                </li>
+                <%
+                _.each(notifications[prop], function(notification) {
+                    var date = new Date(notification.created_at);
+                    var hours = date.getHours();
+                    var minutes = date.getMinutes();
+                    var ampm = hours >= 12 ? 'pm' : 'am';
+                    hours = (hours % 12) ? (hours % 12) : '12';
+                    minutes = minutes < 10 ? '0' + minutes : minutes;
+                    var time = hours + ':' + minutes + ' ' + ampm;
+                %>
+                    <li data-notificationId="<%= notification.id %>">
+                        <h3><strong>New Package Arrived!</strong></h3>
+                        <p class="ui-li-aside"><strong><%= time %></strong></p>
+                    </li>
+                <%
+                });
+            }
+        } %>
+        </ul>
+    <%
+    } else {
+    %>
+        <p>No new notifications for you!<p/>
+    <%    
+    }
+    %>
+</div>
+
